@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My Garden Wildlife", "My Wildlife Garden\My Garden Wildlife.csproj", "{ACB6669E-771C-4330-A1CF-2DF74810CB15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGardenWildlife2", "MyGardenWildlife2\MyGardenWildlife2.csproj", "{F25D0F67-4C83-43AB-B461-A5BB233A6BFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACB6669E-771C-4330-A1CF-2DF74810CB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB6669E-771C-4330-A1CF-2DF74810CB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB6669E-771C-4330-A1CF-2DF74810CB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB6669E-771C-4330-A1CF-2DF74810CB15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25D0F67-4C83-43AB-B461-A5BB233A6BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25D0F67-4C83-43AB-B461-A5BB233A6BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25D0F67-4C83-43AB-B461-A5BB233A6BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25D0F67-4C83-43AB-B461-A5BB233A6BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {292C81F4-A23A-49AE-8E30-FC30B345A01D}
+	EndGlobalSection
+EndGlobal

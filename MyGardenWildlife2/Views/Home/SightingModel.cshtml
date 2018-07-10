@@ -1,0 +1,31 @@
+﻿@model MyGardenWildlife2.Models.SightingModel
+
+<div>
+    <div>
+
+        <p>
+            @Model.When. @Model.Where.  @if (Model.HowMany!= null)
+            {
+                <span>Number seen: @Model.HowMany</span>
+            }
+        </p>
+        <p>
+            @if (Model.Comment != null)
+            {
+                @Model.Comment
+            }
+        </p>
+
+
+
+
+    </div>
+
+    @if (Model.Figure != null)
+    {
+        foreach (var figure in Model.Figure)
+        {
+            @Html.Partial("FigureModel", figure)
+        }
+    }
+</div>

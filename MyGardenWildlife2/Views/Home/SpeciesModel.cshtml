@@ -1,0 +1,20 @@
+﻿@model MyGardenWildlife2.Models.SpeciesModel
+
+<div>
+    <h3>@Model.CommonName</h3>
+    <p class="speciesLatin">@Model.LatinName</p>
+
+    <div>
+        @if (Model.SightingList != null)
+        {
+            
+            foreach (var sighting in Model.SightingList)
+            {
+                @Html.Partial("SightingModel", sighting)
+            }
+        }
+    </div>
+
+</div>
+
+

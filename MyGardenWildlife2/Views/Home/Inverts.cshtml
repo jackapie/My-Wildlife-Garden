@@ -1,0 +1,26 @@
+﻿@model List<MyGardenWildlife2.Models.CategoryModel> 
+
+@{
+    ViewBag.Title = "Invertebrates";
+    ViewBag.Heading = "Invertebrates";
+}
+
+
+<div class="contentSection">
+    <div>
+        <p>
+            Introductory Paragraph about set up of page ie. divided into sections of my garden or plant types -still need to decide
+
+        </p>       
+    </div>
+
+    <div>
+        @foreach (var category in Model)
+        {
+            @Html.Partial("CategoryModel", category)
+        }
+          
+    </div>
+</div>
+
+

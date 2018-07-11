@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<MyGardenWildlife2.Models.CategoryModel>
+@{
     ViewBag.Title = "Plants";
     ViewBag.Heading = "Plants";
 }
@@ -6,74 +7,10 @@
 
 <div class="contentSection">
     <div>
-        <p>
-            Introductory Paragraph about set up of page ie. divided into sections of my garden or plant types -still need to decide
-
-        </p>
-    </div>
-    <div>
-        <div>
-            <h2>South facing border</h2>
-            <div id="southFacingBorder" class="speciesList">
-                <a href="#" onclick="toggleSomething('#southFacingBorder div');">Show/hide</a>
-                <div>
-                    <h3>Foxglove</h3>
-                    <p class="speciesLatin">Digitalis purpurea</p>
-                    <h3>Sage</h3>
-                    <p class="speciesLatin">Salvia officinalis</p>
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Meadow</h2>
-            <div id="meadow" class="speciesList">
-                <a href="#" onclick="toggleSomething('#meadow div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Pond</h2>
-            <div id="pond" class="speciesList">
-                <a href="#" onclick="toggleSomething('#pond div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>North facing border</h2>
-            <div id="northFacingBorder" class="speciesList">
-                <a href="#" onclick="toggleSomething('#northFacingBorder div');">Show/hide</a>
-                <div>
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <h2>Lawn</h2>
-            <div id="lawn" class="speciesList">
-                <a href="#" onclick="toggleSomething('#lawn div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Front garden</h2>
-            <div id="frontGarden" class="speciesList">
-                <a href="#" onclick="toggleSomething('#frontGarden div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
+        @foreach (var category in Model)
+        {
+            @Html.Partial("CategoryModel", category)
+        }
 
     </div>
 </div>

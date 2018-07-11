@@ -15,6 +15,8 @@ namespace MyGardenWildlife2.Models
             Database.SetInitializer<WildlifeContext>(null);
         }
 
+        public DbSet<SectionModel> Sections { get; set; }
+
         public DbSet<CategoryModel> Categories { get; set; }
     }
 }

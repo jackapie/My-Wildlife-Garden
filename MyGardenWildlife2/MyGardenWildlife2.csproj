@@ -161,6 +161,7 @@
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\DataHelperClass.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\SectionModel.cs" />
     <Compile Include="Models\WildlifeContext.cs" />
     <Compile Include="Models\SightingModel.cs" />
     <Compile Include="Models\SpeciesModel.cs" />

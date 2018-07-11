@@ -47,9 +47,10 @@ namespace MyGardenWildlife2.Controllers
 
         public ActionResult Mammals()
         {
-
-            return View();
+            var mammalsData = DatabaseHelper.GetMammalsData();
+            return View(mammalsData);
         }
+
         public ActionResult Plants()
         {
 

@@ -15,11 +15,19 @@ namespace MyGardenWildlife2.Controllers
         }
 
       
-        public ActionResult Birds()
+        public ActionResult BirdsOld()
         {
 
             return View();
         }
+
+        public ActionResult Birds()
+        {
+            var birdsData = DatabaseHelper.GetBirdsData();
+
+            return View(birdsData);
+        }
+
         public ActionResult InvertsOld()
         {
             var invertsData = DataHelperClass.GetInvertsData(); 

@@ -53,8 +53,8 @@ namespace MyGardenWildlife2.Controllers
 
         public ActionResult Plants()
         {
-
-            return View();
+            var plantsData = DatabaseHelper.GetPlantsData();
+            return View(plantsData);
         }
     }
 }

@@ -45,11 +45,11 @@ namespace MyGardenWildlife2.Helpers
 
         }
 
-        public static List<CategoryModel> GetMammalsData()
+        public static List<CategoryModel> GetPlantsData()
         {
             var context = new WildlifeContext();
 
-            var section = context.Sections.Where((e) => e.SectionName == "Mammals, Amphibians and Reptiles").First();
+            var section = context.Sections.Where((e) => e.SectionName == "Plants").First();
 
             var result = section.CategoryList;
 

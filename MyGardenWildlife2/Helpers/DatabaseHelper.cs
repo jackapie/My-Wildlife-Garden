@@ -21,6 +21,18 @@ namespace MyGardenWildlife2.Helpers
 
         }
 
+        public static List<CategoryModel> GetBirdsData()
+        {
+            var context = new WildlifeContext();
+
+            var section = context.Sections.Where((e) => e.SectionName == "Birds").First();
+
+            var result = section.CategoryList;
+
+            return result;
+
+        }
+
 
         /*Loop through each category.
          *For each category, loop through species

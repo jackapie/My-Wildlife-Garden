@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<MyGardenWildlife2.Models.CategoryModel>
+
+@{
     ViewBag.Title = "Birds";
     ViewBag.Heading = "Birds";
 }
@@ -10,67 +12,13 @@
 
         </p>
     </div>
+
     <div>
-        <div>
-            <h2>Passerines</h2>
-            <div id="passerines" class="speciesList">
-                <a href="#" onclick="toggleSomething('#passerines div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Finches</h2>
-            <div id="finches" class="speciesList">
-                <a href="#" onclick="toggleSomething('#finches div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Thrushes</h2>
-            <div id="thrushes" class="speciesList">
-                <a href="#" onclick="toggleSomething('#thrushes div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Corvids</h2>
-            <div id="corvids" class="speciesList">
-                <a href="#" onclick="toggleSomething('#corvids div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Birds of prey</h2>
-            <div id="birdsOfPrey" class="speciesList">
-                <a href="#" onclick="toggleSomething('#birdsOfPrey div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <h2>Woodpeckers</h2>
-            <div id="woodpeckers" class="speciesList">
-                <a href="#" onclick="toggleSomething('#woodpeckers div');">Show/hide</a>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
+        @foreach (var category in Model)
+        {
+            @Html.Partial("CategoryModel", category)
+        }
 
     </div>
+
 </div>

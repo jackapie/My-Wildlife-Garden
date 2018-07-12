@@ -14,18 +14,8 @@ namespace MyGardenWildlife2.Controllers
             return View();
         }
 
-      
-        public ActionResult Birds()
-        {
-
-            return View();
-        }
-        public ActionResult InvertsOld()
-        {
-            var invertsData = DataHelperClass.GetInvertsData(); 
-
-            return View(invertsData);
-        }
+    
+        
 
         public ActionResult Inverts()
         {

@@ -14,12 +14,7 @@ namespace MyGardenWildlife2.Controllers
             return View();
         }
 
-      
-        public ActionResult BirdsOld()
-        {
 
-            return View();
-        }
 
         public ActionResult Birds()
         {
@@ -28,16 +23,9 @@ namespace MyGardenWildlife2.Controllers
             return View(birdsData);
         }
 
-        public ActionResult InvertsOld()
-        {
-            var invertsData = DataHelperClass.GetInvertsData(); 
-
-            return View(invertsData);
-        }
-
         public ActionResult Inverts()
         {
-            var invertsData = DatabaseHelper.GetInvertsData();
+            var invertsData = DatabaseHelper.GetSection("Invertebrates");
 
 
             return View(invertsData);

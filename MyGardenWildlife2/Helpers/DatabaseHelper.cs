@@ -7,7 +7,19 @@ using System.Web;
 namespace MyGardenWildlife2.Helpers
 {
     public class DatabaseHelper
+
     {
+        public static List<CategoryModel> GetSection(string SectionName)
+        {
+            var context = new WildlifeContext();
+
+            var section = context.Sections.Where((e) => e.SectionName == SectionName).First();
+
+            var result = section.CategoryList;
+
+            return result;
+
+        }
 
         public static List<CategoryModel> GetInvertsData()
         {

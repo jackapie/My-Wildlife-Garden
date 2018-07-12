@@ -29,7 +29,7 @@ namespace MyGardenWildlife2.Controllers
 
         public ActionResult Inverts()
         {
-            var invertsData = DatabaseHelper.GetInvertsData();
+            var invertsData = DatabaseHelper.GetSection("Invertebrates");
 
 
             return View(invertsData);

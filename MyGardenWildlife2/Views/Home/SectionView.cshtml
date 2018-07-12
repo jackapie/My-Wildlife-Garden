@@ -1,8 +1,8 @@
-﻿@model List<MyGardenWildlife2.Models.CategoryModel>
+﻿@model MyGardenWildlife2.Models.SectionModel
 
 @{
-    ViewBag.Title = "Birds";
-    ViewBag.Heading = "Birds";
+    ViewBag.Title = Model.SectionName;
+    ViewBag.Heading = Model.SectionName;
 }
 
 <div class="contentSection">
@@ -14,7 +14,7 @@
     </div>
 
     <div>
-        @foreach (var category in Model)
+        @foreach (var category in Model.CategoryList)
         {
             @Html.Partial("CategoryModel", category)
         }

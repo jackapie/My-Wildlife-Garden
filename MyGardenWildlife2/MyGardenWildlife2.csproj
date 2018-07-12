@@ -220,7 +220,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Birds.cshtml" />
+    <Content Include="Views\Home\SectionView.cshtml" />
     <Content Include="Views\Home\Inverts.cshtml" />
     <Content Include="Views\Home\Mammals.cshtml" />
     <Content Include="Views\Home\Plants.cshtml" />

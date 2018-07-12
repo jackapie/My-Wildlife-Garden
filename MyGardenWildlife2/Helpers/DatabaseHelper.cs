@@ -9,15 +9,13 @@ namespace MyGardenWildlife2.Helpers
     public class DatabaseHelper
 
     {
-        public static List<CategoryModel> GetSection(string SectionName)
+        public static SectionModel GetSection(string SectionName)
         {
             var context = new WildlifeContext();
 
             var section = context.Sections.Where((e) => e.SectionName == SectionName).First();
 
-            var result = section.CategoryList;
-
-            return result;
+            return section;
 
         }
 

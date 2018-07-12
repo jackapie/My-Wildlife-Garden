@@ -18,7 +18,7 @@ namespace MyGardenWildlife2.Controllers
 
         public ActionResult Birds()
         {
-            var birdsData = DatabaseHelper.GetBirdsData();
+            var birdsData = DatabaseHelper.GetSection("Birds");
 
             return View(birdsData);
         }
@@ -35,13 +35,13 @@ namespace MyGardenWildlife2.Controllers
 
         public ActionResult Mammals()
         {
-            var mammalsData = DatabaseHelper.GetMammalsData();
+            var mammalsData = DatabaseHelper.GetSection("Mammals, Amphibians and Reptiles");
             return View(mammalsData);
         }
 
         public ActionResult Plants()
         {
-            var plantsData = DatabaseHelper.GetPlantsData();
+            var plantsData = DatabaseHelper.GetSection("Plants");
             return View(plantsData);
         }
     }

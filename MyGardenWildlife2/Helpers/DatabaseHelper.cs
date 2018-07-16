@@ -9,7 +9,7 @@ namespace MyGardenWildlife2.Helpers
     public class DatabaseHelper
 
     {
-        //SectionModel is the type, GetSection therefore is of the type SectionMode
+        //SectionModel is the return type, GetSection is a function that returns an object of type SectionModel.
         //GetSection takes a parameter that is SectionName, a string.
         public static SectionModel GetSection(string SectionName)
         {

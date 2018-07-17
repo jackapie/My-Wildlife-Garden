@@ -1,0 +1,24 @@
+﻿@model List<MyGardenWildlife2.Models.SectionModel>
+
+<table>
+    <tr>
+        <td>Section Name</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    @foreach (var sectionObject in Model)
+    {
+        <tr>
+            <td>@sectionObject.SectionName</td>
+            <td>
+                <a></a>
+            </td>
+            <td>
+                <a></a>
+            </td>
+        </tr>
+
+    }
+
+
+</table>

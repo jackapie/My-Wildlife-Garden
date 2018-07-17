@@ -9,6 +9,7 @@ namespace MyGardenWildlife2.Models
     {
         public int Id { get; set;}
         public string SectionName { get; set;}
+        public string SectionIntro { get; set;}
         public virtual List<CategoryModel> CategoryList { get; set;}
     }
 }

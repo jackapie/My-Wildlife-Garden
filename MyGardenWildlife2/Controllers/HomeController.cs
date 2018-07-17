@@ -9,6 +9,15 @@ namespace MyGardenWildlife2.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Section(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var sectionData = dbHelper.GetSectionById(Id);
+
+            return View("sectionView", sectionData);
+        }
+
+
         public ActionResult Index()
         {
             return View();
@@ -16,33 +25,6 @@ namespace MyGardenWildlife2.Controllers
 
 
 
-        public ActionResult Birds()
-        {
-            var birdsData = DatabaseHelper.GetSection("Birds");
-
-            return View("sectionView", birdsData);
-        }
-
-        public ActionResult Inverts()
-        {
-            var invertsData = DatabaseHelper.GetSection("Invertebrates");
-
-
-            return View("sectionView", invertsData);
-        }
-
-
-
-        public ActionResult Mammals()
-        {
-            var mammalsData = DatabaseHelper.GetSection("Mammals, Amphibians and Reptiles");
-            return View("sectionView", mammalsData);
-        }
-
-        public ActionResult Plants()
-        {
-            var plantsData = DatabaseHelper.GetSection("Plants");
-            return View("sectionView", plantsData);
-        }
+     
     }
 }

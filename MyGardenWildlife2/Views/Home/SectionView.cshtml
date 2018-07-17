@@ -10,12 +10,12 @@
     ViewBag.Heading = Model.SectionName;
 }
 
-@*Still to do: write a generic intro paragraph, possibly with a few words specific to each section*@
+@* A generic intro paragraph, with a few words specific to each section, specified in the database in SectionIntro column*@
 
 <div class="contentSection">
     <div>
         <p>
-            Introductory Paragraph about set up of page ie. divided into sections of my garden or plant types -still need to decide
+            This page lists <span>@Model.SectionIntro</span> in my garden. They have been organised into categories.
 
         </p>
     </div>

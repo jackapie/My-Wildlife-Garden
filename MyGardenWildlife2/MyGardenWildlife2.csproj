@@ -221,9 +221,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SectionView.cshtml" />
-    <Content Include="Views\Home\Inverts.cshtml" />
-    <Content Include="Views\Home\Mammals.cshtml" />
-    <Content Include="Views\Home\Plants.cshtml" />
     <Content Include="Views\Home\CategoryModel.cshtml" />
     <Content Include="Views\Home\SpeciesModel.cshtml" />
     <Content Include="Views\Home\FigureModel.cshtml" />

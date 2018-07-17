@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var dbHelper = new MyGardenWildlife2.Helpers.DatabaseHelper();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,10 +16,12 @@
     <h1>@ViewBag.Heading</h1>
     <p class="headerLinks">
         <a href="~/home/index">Home</a>
-        <a href="~/home/inverts">Invertebrates</a>
-        <a href="~/home/birds">Birds</a>
-        <a href="~/home/mammals">Mammals, Amphibians & Reptiles</a>
-        <a href="~/home/plants">Plants</a>
+        @foreach (var sectionObject in dbHelper.GetSectionList())
+        {
+            <a href="~/home/Section/@sectionObject.Id">@sectionObject.SectionName</a> 
+        }
+        
+
     </p>
     @RenderBody()
 

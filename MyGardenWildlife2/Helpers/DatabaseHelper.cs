@@ -11,7 +11,7 @@ namespace MyGardenWildlife2.Helpers
     {
         //SectionModel is the return type, GetSection is a function that returns an object of type SectionModel.
         //GetSection takes a parameter that is SectionName, a string.
-        public static SectionModel GetSection(string SectionName)
+        public SectionModel GetSection(string SectionName)
         {
             //Create an object of type WildlifeContext, assign this to variable "context"
             var context = new WildlifeContext();
@@ -27,6 +27,24 @@ namespace MyGardenWildlife2.Helpers
 
         }
 
+        public List<SectionModel> GetSectionList()
+        {
+            var context = new WildlifeContext();
+
+            var SectionList = context.Sections.ToList();
+
+            return SectionList;
+
+        }
+
+        public SectionModel GetSectionById(int SectionId)
+        {
+            var context = new WildlifeContext();
+
+            var section = context.Sections.Where((e) => e.Id == SectionId).First();
+
+            return section;
+        }
      
 
        

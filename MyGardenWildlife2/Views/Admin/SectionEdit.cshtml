@@ -1,0 +1,16 @@
+﻿@model MyGardenWildlife2.Models.SectionModel
+    <form action="~/admin/SectionSave"  method="post">
+        
+        
+        <input type="hidden" name="SectionId" value="@Model.Id" />
+        <br /><br />
+        Section Name:<br />
+        <input type="text" name="SectionName" value="@Model.SectionName"/>
+        <br /><br />
+        Section Intro:<br />
+        <input type="text" name="SectionIntro" value="@Model.SectionIntro"/>
+        <br /><br />
+        <input type="submit" value="Submit" />
+
+
+    </form>

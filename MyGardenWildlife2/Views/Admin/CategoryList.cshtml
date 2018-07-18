@@ -1,0 +1,25 @@
+﻿@model MyGardenWildlife2.Models.SectionModel
+@{
+    ViewBag.Title = @Model.SectionName + "Admin";
+}
+
+<h2> @Model.SectionName Admin</h2>
+<table>
+    <tr>
+        <td>Category Name</td>
+        <td>Edit</td>
+        <td>Categories</td>
+        <td>Delete</td>
+    </tr>
+    @foreach (var categoryObject in Model.CategoryList)
+    {
+        <tr>
+            <td>@categoryObject.CategoryName</td>
+            <td>
+                <a></a>
+            </td>
+        </tr>
+    }
+
+</table>
+

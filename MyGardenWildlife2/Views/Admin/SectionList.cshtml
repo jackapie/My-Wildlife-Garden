@@ -1,9 +1,14 @@
 ﻿@model List<MyGardenWildlife2.Models.SectionModel>
 
+@{
+    ViewBag.Title = "Section List";
+}
+
 <table>
     <tr>
         <td>Section Name</td>
         <td>Edit</td>
+        <td>Categories</td>
         <td>Delete</td>
     </tr>
     @foreach (var sectionObject in Model)
@@ -11,14 +16,17 @@
         <tr>
             <td>@sectionObject.SectionName</td>
             <td>
-                <a></a>
+                <a href="~/admin/sectionEdit/@sectionObject.Id">Edit</a>
             </td>
             <td>
-                <a></a>
+                <a href="~/admin/categoryList/@sectionObject.Id">Category List</a>
             </td>
         </tr>
-
     }
 
 
 </table>
+
+<form>
+    <input type="button" name="Add" value="Add New" />
+</form>

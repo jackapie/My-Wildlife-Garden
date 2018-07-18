@@ -46,24 +46,34 @@ namespace MyGardenWildlife2.Helpers
             return section;
         }
      
+        public void SetSection(int SectionId, string SectionName, string SectionIntro)
+        {
+            var context = new WildlifeContext();
+            var section = context.Sections.Where((e) => e.Id == SectionId).First();
 
-       
+            section.SectionName = SectionName;
+            section.SectionIntro = SectionIntro;
+            context.SaveChanges();
+        }
 
-       
+        
 
-       
 
-        /*Loop through each category.
-         *For each category, loop through species
-         * For each species, show CommonName, LatinName, and if applicable, sighting information.
-         * Sighting information to show includes When, where, how many (if given), comments (if given) and a figure (if applicable)
-         * Where there is a figure, show the caption and retrieve the image.
-         * The image has a source and an alternative.
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
-    }
+
+
+
+
+            /*Loop through each category.
+             *For each category, loop through species
+             * For each species, show CommonName, LatinName, and if applicable, sighting information.
+             * Sighting information to show includes When, where, how many (if given), comments (if given) and a figure (if applicable)
+             * Where there is a figure, show the caption and retrieve the image.
+             * The image has a source and an alternative.
+             * 
+             * 
+             * 
+             * 
+             * 
+             */
+        }
 }

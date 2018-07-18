@@ -11,5 +11,6 @@ namespace MyGardenWildlife2.Models
         public int Id { get; set; }
         public string CategoryName { get; set; }
         public virtual List <SpeciesModel> SpeciesList { get; set; }
+        public virtual SectionModel SectionModel { get; set; }
     }
 }

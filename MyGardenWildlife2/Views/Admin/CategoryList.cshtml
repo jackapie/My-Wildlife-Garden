@@ -8,7 +8,7 @@
     <tr>
         <td>Category Name</td>
         <td>Edit</td>
-        <td>Categories</td>
+        <td>Species</td>
         <td>Delete</td>
     </tr>
     @foreach (var categoryObject in Model.CategoryList)
@@ -16,7 +16,7 @@
         <tr>
             <td>@categoryObject.CategoryName</td>
             <td>
-                <a></a>
+                <a href="~/admin/CategoryEdit/@categoryObject.Id">Edit</a>
             </td>
         </tr>
     }

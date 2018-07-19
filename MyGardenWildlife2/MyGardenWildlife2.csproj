@@ -182,6 +182,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\Chafer.JPG" />
     <Content Include="images\daisyBorder.jpg" />
+    <Content Include="images\Longitarsus beetle.jpg" />
     <Content Include="images\Meadow browns.JPG" />
     <Content Include="images\painted_lady.JPG" />
     <Content Include="images\Pond.JPG" />
@@ -208,6 +209,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Style.css" />
     <Content Include="Views\Admin\CategoryList.cshtml" />
+    <Content Include="Views\Admin\CategoryEdit.cshtml" />
     <None Include="Views\Admin\SectionEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

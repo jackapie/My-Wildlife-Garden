@@ -29,6 +29,13 @@ namespace MyGardenWildlife2.Controllers
             return View("sectionEdit", sectionData);
         }
 
+        public ActionResult CategoryEdit(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var CategoryData = dbHelper.GetCategoryById(Id);
+            return View("categoryEdit", CategoryData);
+        }
+
         public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)
         {
             var dbHelper = new DatabaseHelper();
@@ -43,6 +50,14 @@ namespace MyGardenWildlife2.Controllers
             var dbHelper = new DatabaseHelper();
             var section = dbHelper.GetSectionById(Id);
             return View("CategoryList", section);
+
+        }
+
+        public ActionResult CategorySave(int CategoryId, string CategoryName, int SectionId)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.SetCategory(CategoryId, CategoryName);
+            return RedirectToAction("CategoryList", new { Id = SectionId});
 
         }
 

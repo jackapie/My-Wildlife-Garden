@@ -18,5 +18,7 @@ namespace MyGardenWildlife2.Models
         public DbSet<SectionModel> Sections { get; set; }
 
         public DbSet<CategoryModel> Categories { get; set; }
+
+        public DbSet<SpeciesModel> Species { get; set; }
     }
 }

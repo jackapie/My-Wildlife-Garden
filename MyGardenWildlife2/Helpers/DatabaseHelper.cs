@@ -45,6 +45,14 @@ namespace MyGardenWildlife2.Helpers
 
             return section;
         }
+
+        public CategoryModel GetCategoryById(int CategoryId)
+        {
+            var context = new WildlifeContext();
+
+            var category = context.Categories.Where((e) => e.Id == CategoryId).First();
+            return category;
+        }
      
         public void SetSection(int SectionId, string SectionName, string SectionIntro)
         {
@@ -53,6 +61,15 @@ namespace MyGardenWildlife2.Helpers
 
             section.SectionName = SectionName;
             section.SectionIntro = SectionIntro;
+            context.SaveChanges();
+        }
+
+        public void SetCategory(int CategoryId, string CategoryName)
+        {
+            var context = new WildlifeContext();
+            var category = context.Categories.Where((e) => e.Id == CategoryId).First();
+
+            category.CategoryName = CategoryName;
             context.SaveChanges();
         }
 

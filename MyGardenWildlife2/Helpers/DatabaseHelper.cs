@@ -61,6 +61,12 @@ namespace MyGardenWildlife2.Helpers
             return species;
         }
 
+        public SightingModel GetSightingById(int SightingId)
+        {
+            var context = new WildlifeContext();
+            var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
+            return sighting;
+        }
         //Set functions
         public void SetSection(int SectionId, string SectionName, string SectionIntro)
         {
@@ -87,6 +93,17 @@ namespace MyGardenWildlife2.Helpers
             var species = context.Species.Where((e) => e.Id == SpeciesId).First();
             species.CommonName = CommonName;
             species.LatinName = LatinName;
+            context.SaveChanges();
+        }
+
+        public void SetSighting(int SightingId, DateTime When, string Where, int HowMany, string Comment)
+        {
+            var context = new WildlifeContext();
+            var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
+            sighting.When = When;
+            sighting.Where = Where;
+            sighting.HowMany = HowMany;
+            sighting.Comment = Comment;
             context.SaveChanges();
         }
 

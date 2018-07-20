@@ -54,7 +54,12 @@ namespace MyGardenWildlife2.Helpers
             return category;
         }
 
-        
+        public SpeciesModel GetSpeciesById(int SpeciesId)
+        {
+            var context = new WildlifeContext();
+            var species = context.Species.Where((e) => e.Id == SpeciesId).First();
+            return species;
+        }
 
         //Set functions
         public void SetSection(int SectionId, string SectionName, string SectionIntro)

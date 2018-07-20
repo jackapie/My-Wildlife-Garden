@@ -53,6 +53,12 @@ namespace MyGardenWildlife2.Controllers
             return View("categoryEdit", CategoryData);
         }
 
+        public ActionResult SpeciesEdit(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var SpeciesData = dbHelper.GetSpeciesById(Id);
+            return View(SpeciesData);
+        }
         //Saves
         public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)
         {

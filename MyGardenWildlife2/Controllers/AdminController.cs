@@ -15,6 +15,7 @@ namespace MyGardenWildlife2.Controllers
             return View();
         }
 
+        //Lists
         public ActionResult SectionList()
         {
             var dbHelper = new DatabaseHelper();
@@ -22,6 +23,22 @@ namespace MyGardenWildlife2.Controllers
             return View(sections);
         }
 
+        public ActionResult CategoryList(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var section = dbHelper.GetSectionById(Id);
+            return View("CategoryList", section);
+
+        }
+
+        public ActionResult SpeciesList(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var category = dbHelper.GetCategoryById(Id);
+            return View("SpeciesList", category);
+        }
+
+        //Edits
         public ActionResult SectionEdit(int Id)
         {
             var dbHelper = new DatabaseHelper();
@@ -36,6 +53,7 @@ namespace MyGardenWildlife2.Controllers
             return View("categoryEdit", CategoryData);
         }
 
+        //Saves
         public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)
         {
             var dbHelper = new DatabaseHelper();
@@ -45,13 +63,7 @@ namespace MyGardenWildlife2.Controllers
             return RedirectToAction("SectionList");
         }
 
-        public ActionResult CategoryList(int Id)
-        {
-            var dbHelper = new DatabaseHelper();
-            var section = dbHelper.GetSectionById(Id);
-            return View("CategoryList", section);
-
-        }
+       
 
         public ActionResult CategorySave(int CategoryId, string CategoryName, int SectionId)
         {

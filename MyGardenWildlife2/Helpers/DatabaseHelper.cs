@@ -26,7 +26,7 @@ namespace MyGardenWildlife2.Helpers
             return section;
 
         }
-
+         //Get functions
         public List<SectionModel> GetSectionList()
         {
             var context = new WildlifeContext();
@@ -53,7 +53,10 @@ namespace MyGardenWildlife2.Helpers
             var category = context.Categories.Where((e) => e.Id == CategoryId).First();
             return category;
         }
-     
+
+        
+
+        //Set functions
         public void SetSection(int SectionId, string SectionName, string SectionIntro)
         {
             var context = new WildlifeContext();

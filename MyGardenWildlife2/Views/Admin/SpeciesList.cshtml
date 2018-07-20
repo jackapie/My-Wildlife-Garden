@@ -1,0 +1,29 @@
+﻿@model MyGardenWildlife2.Models.CategoryModel
+@{
+    ViewBag.Title = @Model.CategoryName + "List";
+}
+
+<h2>@Model.CategoryName List</h2>
+
+<table>
+    <tr>
+        <td>Species Name</td>
+        <td>Latin Name</td>
+        <td>Edit</td>
+        <td>Sighting</td>
+        <td>Delete</td>
+    </tr>
+    @foreach (var speciesObject in Model.SpeciesList)
+    {
+        <tr>
+            <td>@speciesObject.CommonName</td>
+            <td>@speciesObject.LatinName</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    }
+
+</table>
+

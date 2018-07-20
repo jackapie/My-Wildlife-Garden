@@ -68,15 +68,20 @@ namespace MyGardenWildlife2.Controllers
 
             return RedirectToAction("SectionList");
         }
-
-       
-
+      
         public ActionResult CategorySave(int CategoryId, string CategoryName, int SectionId)
         {
             var dbHelper = new DatabaseHelper();
             dbHelper.SetCategory(CategoryId, CategoryName);
             return RedirectToAction("CategoryList", new { Id = SectionId});
 
+        }
+
+        public ActionResult SpeciesSave(int SpeciesId, int CategoryId, string CommonName, string LatinName)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.SetSpecies(SpeciesId, CommonName, LatinName);
+            return RedirectToAction("SpeciesList", new { id = CategoryId });
         }
 
     }

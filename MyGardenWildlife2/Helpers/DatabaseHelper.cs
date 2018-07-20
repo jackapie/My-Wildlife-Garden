@@ -81,6 +81,15 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
 
+        public void SetSpecies(int SpeciesId, string CommonName, string LatinName)
+        {
+            var context = new WildlifeContext();
+            var species = context.Species.Where((e) => e.Id == SpeciesId).First();
+            species.CommonName = CommonName;
+            species.LatinName = LatinName;
+            context.SaveChanges();
+        }
+
         
 
 

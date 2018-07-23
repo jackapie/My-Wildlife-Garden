@@ -123,6 +123,18 @@ namespace MyGardenWildlife2.Helpers
             figure.Caption = Caption;
             context.SaveChanges();
         }
+
+        //Add
+
+        public void AddSection(string SectionName, string SectionIntro)
+        {
+            var context = new WildlifeContext();
+            var section = new SectionModel();
+            context.Sections.Add(section);
+            section.SectionName = SectionName;
+            section.SectionIntro = SectionIntro;
+            context.SaveChanges();
+        }
         
 
 

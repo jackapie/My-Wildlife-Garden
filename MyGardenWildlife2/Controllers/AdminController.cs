@@ -88,6 +88,22 @@ namespace MyGardenWildlife2.Controllers
             return View(FigureData);
         }
 
+        //Adds
+        public ActionResult NewSection()
+        {
+            return View("NewSection");
+        }
+
+
+        public ActionResult SectionAdd(string SectionName, string SectionIntro)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.AddSection(SectionName, SectionIntro);
+            return RedirectToAction("SectionList");
+        }
+
+
+
         //Saves
         public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)
         {

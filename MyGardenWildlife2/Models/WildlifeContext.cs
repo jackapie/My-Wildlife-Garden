@@ -22,5 +22,7 @@ namespace MyGardenWildlife2.Models
         public DbSet<SpeciesModel> Species { get; set; }
 
         public DbSet<SightingModel> Sighting { get; set; }
+
+        public DbSet<FigureModel> Figure { get; set; }
     }
 }

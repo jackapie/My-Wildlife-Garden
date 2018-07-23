@@ -1,0 +1,17 @@
+﻿@model MyGardenWildlife2.Models.FigureModel
+@{
+    ViewBag.Title = Model.SightingModel.SpeciesModel.CommonName + Model.Source + "Figure Edit";
+    ViewBag.Heading = "Figure Edit";
+}
+
+<h2>@Model.SightingModel.SpeciesModel.CommonName @Model.Source Figure Edit</h2>
+
+<form action="~/admin/FigureSave" method="post">
+    <input type="hidden" name="FigureId" value="@Model.Id"/>
+    <input type="hidden" name="SightingId" value="@Model.SightingModel.Id" />
+    <input type="text" name="Source" value="@Model.Source" />
+    <input type="text" name="Alternative" value="@Model.Alternative"/>
+    <input type="text" name="Caption" value="@Model.Caption" />
+    <input type="Submit" value="submit" />
+</form>
+

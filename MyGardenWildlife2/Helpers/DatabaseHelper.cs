@@ -67,6 +67,13 @@ namespace MyGardenWildlife2.Helpers
             var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
             return sighting;
         }
+
+        public FigureModel GetFigureById(int FigureId)
+        {
+            var context = new WildlifeContext();
+            var figure = context.Figure.Where((e) => e.Id == FigureId).First();
+            return figure;
+        }
         //Set functions
         public void SetSection(int SectionId, string SectionName, string SectionIntro)
         {
@@ -107,6 +114,15 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
 
+        public void SetFigure(int FigureId, string Source, string Alternative, string Caption)
+        {
+            var context = new WildlifeContext();
+            var figure = context.Figure.Where((e) => e.Id == FigureId).First();
+            figure.Source = Source;
+            figure.Alternative = Alternative;
+            figure.Caption = Caption;
+            context.SaveChanges();
+        }
         
 
 

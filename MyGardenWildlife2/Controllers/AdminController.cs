@@ -45,6 +45,13 @@ namespace MyGardenWildlife2.Controllers
             return View(species);
         }
 
+        public ActionResult FigureList(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var sighting = dbHelper.GetSightingById(Id);
+            return View(sighting);
+        }
+
         //Edits
         public ActionResult SectionEdit(int Id)
         {
@@ -72,6 +79,13 @@ namespace MyGardenWildlife2.Controllers
             var dbHelper = new DatabaseHelper();
             var SightingData = dbHelper.GetSightingById(Id);
             return View(SightingData);
+        }
+
+        public ActionResult FigureEdit(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var FigureData = dbHelper.GetFigureById(Id);
+            return View(FigureData);
         }
 
         //Saves
@@ -106,5 +120,11 @@ namespace MyGardenWildlife2.Controllers
             return RedirectToAction("SightingList", new { id = SpeciesId });
         }
 
+        public ActionResult FigureSave(int FigureId, int SightingId, string Source, string Alternative, string Caption)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.SetFigure(FigureId, Source, Alternative, Caption);
+            return RedirectToAction("FigureList", new { id = SightingId });
+        }
     }
 }

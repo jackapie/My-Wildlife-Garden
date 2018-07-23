@@ -1,0 +1,29 @@
+﻿@model MyGardenWildlife2.Models.SightingModel
+@{
+    ViewBag.Title = Model.SpeciesModel.CommonName + Model.When + "Figure List";
+    ViewBag.Heading = "Figure List";
+}
+
+
+
+<h2>@Model.SpeciesModel.CommonName @Model.When Figure List</h2>
+
+<table>
+    <tr>
+        <td>Source</td>
+        <td>Aternative</td>
+        <td>Caption</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    @foreach (var figureObject in Model.Figure)
+    {
+        <tr>
+            <td>@figureObject.Source</td>
+            <td>@figureObject.Alternative</td>
+            <td>@figureObject.Caption</td>
+            <td><a href="~/admin/FigureEdit/@figureObject.Id">Edit</a></td>
+        </tr>
+    }
+</table>
+

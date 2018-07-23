@@ -167,7 +167,6 @@
     <Compile Include="Models\SightingModel.cs" />
     <Compile Include="Models\SpeciesModel.cs" />
     <Compile Include="Models\FigureModel.cs" />
-    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +209,8 @@
     <Content Include="Style.css" />
     <Content Include="Views\Admin\CategoryList.cshtml" />
     <Content Include="Views\Admin\CategoryEdit.cshtml" />
+    <Content Include="Views\Admin\FigureList.cshtml" />
+    <Content Include="Views\Admin\FigureEdit.cshtml" />
     <None Include="Views\Admin\SectionEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

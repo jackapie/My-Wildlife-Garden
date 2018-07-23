@@ -1,0 +1,21 @@
+﻿@model int?
+@{
+    ViewBag.Title = "NewSpecies";
+}
+
+<h2>NewSpecies</h2>
+
+<form action="~/admin/SpeciesAdd" method="post">
+
+    <input type="hidden" name="CategoryId" value="@Model" />
+    CommonName:
+    <input type="text" name="CommonName" value="" />
+    <br />
+    LatinName:
+    <input type="text" name="LatinName" value="" />
+    <br />
+    <input type="submit" value="submit" />
+
+</form>
+
+

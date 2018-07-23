@@ -114,6 +114,19 @@ namespace MyGardenWildlife2.Controllers
             return RedirectToAction("CategoryList", new { Id = SectionId });
         }
 
+        public ActionResult NewSpecies(int Id)
+        {
+            return View(Id);
+        }
+
+        public ActionResult SpeciesAdd(int CategoryId, string CommonName, string LatinName)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.AddSpecies(CategoryId, CommonName, LatinName);
+            return RedirectToAction("SpeciesList", new { Id = CategoryId });
+
+        }
+
 
 
         //Saves

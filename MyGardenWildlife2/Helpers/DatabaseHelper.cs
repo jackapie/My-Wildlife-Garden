@@ -147,6 +147,16 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
 
+        public void AddSpecies(int CategoryId, string CommonName, string LatinName)
+        {
+            var context = new WildlifeContext();
+            var category = context.Categories.Where((e) => e.Id == CategoryId).First();
+            var species = new SpeciesModel();
+            category.SpeciesList.Add(species);
+            species.CommonName = CommonName;
+            species.LatinName = LatinName;
+            context.SaveChanges();
+        }
 
 
 

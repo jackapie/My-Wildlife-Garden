@@ -102,6 +102,18 @@ namespace MyGardenWildlife2.Controllers
             return RedirectToAction("SectionList");
         }
 
+        public ActionResult NewCategory(int Id)
+        {
+            return View(Id);
+        }
+
+        public ActionResult CategoryAdd(string CategoryName, int SectionId)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.AddCategory(CategoryName, SectionId);
+            return RedirectToAction("CategoryList", new { Id = SectionId });
+        }
+
 
 
         //Saves

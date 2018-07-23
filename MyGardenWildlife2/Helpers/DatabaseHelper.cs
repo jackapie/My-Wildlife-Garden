@@ -136,6 +136,16 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
         
+        public void AddCategory(string CategoryName, int SectionId)
+        {
+            var context = new WildlifeContext();
+            var section = context.Sections.Where((e) => e.Id == SectionId).First();
+            var category = new CategoryModel();
+
+            section.CategoryList.Add(category);
+            category.CategoryName = CategoryName;
+            context.SaveChanges();
+        }
 
 
 

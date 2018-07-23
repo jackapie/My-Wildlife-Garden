@@ -212,6 +212,7 @@
     <Content Include="Views\Admin\FigureList.cshtml" />
     <Content Include="Views\Admin\FigureEdit.cshtml" />
     <Content Include="Views\Admin\NewSection.cshtml" />
+    <Content Include="Views\Admin\NewCategory.cshtml" />
     <None Include="Views\Admin\SectionEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

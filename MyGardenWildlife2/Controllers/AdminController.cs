@@ -191,6 +191,32 @@ namespace MyGardenWildlife2.Controllers
         }
 
         //Deletes
+        public ActionResult SectionDelete(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+                        
+            dbHelper.DeleteSection(Id);
+            return RedirectToAction("SectionList");
+        }
+
+        public ActionResult CategoryDelete(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var category = dbHelper.GetCategoryById(Id);
+            var SectionId = category.SectionModel.Id;
+            dbHelper.DeleteCategory(Id);
+            return RedirectToAction("CategoryList", new { id = SectionId });
+        }
+
+        public ActionResult SpeciesDelete(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var species = dbHelper.GetSpeciesById(Id);
+            var CategoryId = species.CategoryModel.Id;
+            dbHelper.DeleteSpecies(Id);
+            return RedirectToAction("SpeciesList", new { id = CategoryId });
+        }
+
         public ActionResult SightingDelete(int Id)
         {
             var dbHelper = new DatabaseHelper();

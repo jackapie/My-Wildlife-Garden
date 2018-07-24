@@ -214,6 +214,8 @@
     <Content Include="Views\Admin\NewSection.cshtml" />
     <Content Include="Views\Admin\NewCategory.cshtml" />
     <Content Include="Views\Admin\NewSpecies.cshtml" />
+    <Content Include="Views\Admin\NewSighting.cshtml" />
+    <Content Include="Views\Admin\NewFigure.cshtml" />
     <None Include="Views\Admin\SectionEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -9,9 +9,15 @@
 <form action="~/admin/FigureSave" method="post">
     <input type="hidden" name="FigureId" value="@Model.Id"/>
     <input type="hidden" name="SightingId" value="@Model.SightingModel.Id" />
+    Source URL:
     <input type="text" name="Source" value="@Model.Source" />
+    <br />
+    Alternative message:
     <input type="text" name="Alternative" value="@Model.Alternative"/>
+    <br />
+    Figure caption:
     <input type="text" name="Caption" value="@Model.Caption" />
+    <br />
     <input type="Submit" value="submit" />
 </form>
 

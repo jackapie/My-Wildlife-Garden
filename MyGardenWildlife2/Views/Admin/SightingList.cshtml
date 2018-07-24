@@ -23,14 +23,17 @@
             <td>@sightingObject.HowMany</td>
             <td>@sightingObject.Comment</td>
             <td>
-                
+
                 <a href="~/admin/sightingEdit/@sightingObject.Id">Edit</a>
             </td>
             <td>
                 <a href="~/admin/figureList/@sightingObject.Id">Figure list</a>
             </td>
-            
+
         </tr>
     }
 </table>
+<br />
+
+<a href="~/admin/NewSighting/@Model.Id">Add a new sighting</a>
 

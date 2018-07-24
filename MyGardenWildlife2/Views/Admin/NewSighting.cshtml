@@ -1,0 +1,25 @@
+﻿@model int?
+@{
+    ViewBag.Title = "NewSighting";
+}
+
+<h2>NewSighting</h2>
+
+<form action="~/admin/SightingAdd" method="post">
+   
+    <input type="hidden" name="SpeciesId" value="@Model" />
+    When:
+    <input type="datetime" name="When" value="dd/mm/yyyy" />
+    <br />
+    Where:
+    <input type="text" name="Where" value="" />
+    <br />
+    How many:
+    <input type="number" name="HowMany" value="" />
+    <br />
+    Comment:
+    <input type="text" name="Comment" value="" />
+    <br />
+    <input type="submit" value="submit" />
+
+</form>

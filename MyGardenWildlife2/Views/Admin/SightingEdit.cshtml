@@ -8,12 +8,16 @@
 <form action="~/admin/SightingSave" method="post">
     <input type="hidden" name="SightingId" value="@Model.Id"/>
     <input type="hidden" name="SpeciesId" value="@Model.SpeciesModel.Id"/>
+    When:
     <input type="datetime" name="When" value="@Model.When" />
     <br />
+    Where:
     <input type="text" name="Where" value="@Model.Where" />
     <br />
+    How many:
     <input type="number" name="HowMany" value="@Model.HowMany" />
     <br />
+    Comment:
     <input type="text" name="Comment" value="@Model.Comment" />
     <br />
     <input type="submit" value="submit" />

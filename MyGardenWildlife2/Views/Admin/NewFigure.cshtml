@@ -1,0 +1,21 @@
+﻿@model int?
+@{
+    ViewBag.Title = "NewFigure";
+}
+
+<h2>NewFigure</h2>
+
+<form action="~/admin/FigureAdd" method="post">
+    
+    <input type="hidden" name="SightingId" value="@Model" />
+    Source URL:
+    <input type="text" name="Source" value="" />
+    <br />
+    Alternative message:
+    <input type="text" name="Alternative" value="" />
+    <br />
+    Figure Caption:
+    <input type="text" name="Caption" value="" />
+    <br />
+    <input type="Submit" value="submit" />
+</form>

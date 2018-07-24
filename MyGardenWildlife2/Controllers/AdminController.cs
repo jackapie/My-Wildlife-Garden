@@ -127,7 +127,29 @@ namespace MyGardenWildlife2.Controllers
 
         }
 
+        public ActionResult NewSighting(int Id)
+        {
+            return View(Id);
+        }
 
+        public ActionResult SightingAdd(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.AddSighting(SpeciesId, When, Where, HowMany, Comment);
+            return RedirectToAction("SightingList", new { Id = SpeciesId });
+        }
+
+        public ActionResult NewFigure(int Id)
+        {
+            return View(Id);
+        }
+
+        public ActionResult FigureAdd(int SightingId, string Source, string Alternative, string Caption)
+        {
+            var dbHelper = new DatabaseHelper();
+            dbHelper.AddFigure(SightingId, Source, Alternative, Caption);
+            return RedirectToAction("FigureList", new { Id = SightingId });
+        }
 
         //Saves
         public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)

@@ -158,8 +158,31 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
 
+        public void AddSighting(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
+        {
+            var context = new WildlifeContext();
+            var species = context.Species.Where((e) => e.Id == SpeciesId).First();
+            var sighting = new SightingModel();
+            species.SightingList.Add(sighting);
+            sighting.When = When;
+            sighting.Where = Where;
+            sighting.HowMany = HowMany;
+            sighting.Comment = Comment;
+            context.SaveChanges();
+        }
 
+        public void AddFigure(int SightingId, string Source, string Alternative, string Caption)
+        {
+            var context = new WildlifeContext();
+            var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
+            var figure = new FigureModel();            
+            sighting.FigureList.Add(figure);
+            figure.Source = Source;
+            figure.Alternative = Alternative;
+            figure.Caption = Caption;
+            context.SaveChanges();
 
+        }
 
 
             /*Loop through each category.

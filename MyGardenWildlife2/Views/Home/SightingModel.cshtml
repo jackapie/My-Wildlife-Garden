@@ -15,15 +15,11 @@
                 @Model.Comment
             }
         </p>
-
-
-
-
     </div>
 
-    @if (Model.Figure != null)
+    @if (Model.FigureList != null)
     {
-        foreach (var figure in Model.Figure)
+        foreach (var figure in Model.FigureList)
         {
             @Html.Partial("FigureModel", figure)
         }

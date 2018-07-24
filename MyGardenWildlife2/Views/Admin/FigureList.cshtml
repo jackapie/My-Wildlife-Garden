@@ -16,7 +16,7 @@
         <td>Edit</td>
         <td>Delete</td>
     </tr>
-    @foreach (var figureObject in Model.Figure)
+    @foreach (var figureObject in Model.FigureList)
     {
         <tr>
             <td>@figureObject.Source</td>
@@ -26,4 +26,8 @@
         </tr>
     }
 </table>
+<br />
+
+<a href="~/admin/NewFigure/@Model.Id">Add a new figure</a>
+
 

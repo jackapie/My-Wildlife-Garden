@@ -189,5 +189,25 @@ namespace MyGardenWildlife2.Controllers
             dbHelper.SetFigure(FigureId, Source, Alternative, Caption);
             return RedirectToAction("FigureList", new { id = SightingId });
         }
+
+        //Deletes
+        public ActionResult SightingDelete(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var sighting = dbHelper.GetSightingById(Id);
+            var SpeciesId = sighting.SpeciesModel.Id;
+            dbHelper.DeleteSighting(Id);
+            return RedirectToAction("SightingList", new { id = SpeciesId });
+        }
+
+
+        public ActionResult FigureDelete(int Id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var figure = dbHelper.GetFigureById(Id);
+            var SightingId = figure.SightingModel.Id;
+            dbHelper.DeleteFigure(Id);
+            return RedirectToAction("FigureList", new { id = SightingId });
+        }
     }
 }

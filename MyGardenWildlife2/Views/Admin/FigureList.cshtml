@@ -1,12 +1,12 @@
 ﻿@model MyGardenWildlife2.Models.SightingModel
 @{
-    ViewBag.Title = Model.SpeciesModel.CommonName + Model.When + "Figure List";
+    ViewBag.Title = Model.SpeciesModel.CommonName + Model.WhenSeen + "Figure List";
     ViewBag.Heading = "Figure List";
 }
 
 
 
-<h2>@Model.SpeciesModel.CommonName @Model.When Figure List</h2>
+<h2>@Model.SpeciesModel.CommonName @Model.WhenSeen Figure List</h2>
 
 <table>
     <tr>
@@ -23,6 +23,7 @@
             <td>@figureObject.Alternative</td>
             <td>@figureObject.Caption</td>
             <td><a href="~/admin/FigureEdit/@figureObject.Id">Edit</a></td>
+            <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
         </tr>
     }
 </table>

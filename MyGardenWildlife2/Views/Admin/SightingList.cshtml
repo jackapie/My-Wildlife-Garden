@@ -18,8 +18,8 @@
     @foreach (var sightingObject in Model.SightingList)
     {
         <tr>
-            <td>@sightingObject.When</td>
-            <td>@sightingObject.Where</td>
+            <td>@sightingObject.WhenSeen</td>
+            <td>@sightingObject.WhereSeen</td>
             <td>@sightingObject.HowMany</td>
             <td>@sightingObject.Comment</td>
             <td>
@@ -28,6 +28,9 @@
             </td>
             <td>
                 <a href="~/admin/figureList/@sightingObject.Id">Figure list</a>
+            </td>
+            <td>
+                <a href="~/admin/SightingDelete/@sightingObject.Id">Delete</a>
             </td>
 
         </tr>

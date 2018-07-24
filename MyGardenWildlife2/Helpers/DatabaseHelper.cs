@@ -8,7 +8,13 @@ namespace MyGardenWildlife2.Helpers
 {
     public class DatabaseHelper
 
-    {
+    {  /*Loop through each category.
+             *For each category, loop through species
+             * For each species, show CommonName, LatinName, and if applicable, sighting information.
+             * Sighting information to show includes When, where, how many (if given), comments (if given) and a figure (if applicable)
+             * Where there is a figure, show the caption and retrieve the image.
+             * The image has a source and an alternative.
+             */
         //SectionModel is the return type, GetSection is a function that returns an object of type SectionModel.
         //GetSection takes a parameter that is SectionName, a string.
         public SectionModel GetSection(string SectionName)
@@ -21,12 +27,12 @@ namespace MyGardenWildlife2.Helpers
             //On this new object, call the First function, returns an object 
             //Assign this new object to variable "section"
             var section = context.Sections.Where((e) => e.SectionName == SectionName).First();
-            
+
             //Sets the result of the overall function to be "section", and exits the function.
             return section;
 
         }
-         //Get functions
+        //Get functions
         public List<SectionModel> GetSectionList()
         {
             var context = new WildlifeContext();
@@ -107,8 +113,8 @@ namespace MyGardenWildlife2.Helpers
         {
             var context = new WildlifeContext();
             var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
-            sighting.When = When;
-            sighting.Where = Where;
+            sighting.WhenSeen = When;
+            sighting.WhereSeen = Where;
             sighting.HowMany = HowMany;
             sighting.Comment = Comment;
             context.SaveChanges();
@@ -135,7 +141,7 @@ namespace MyGardenWildlife2.Helpers
             section.SectionIntro = SectionIntro;
             context.SaveChanges();
         }
-        
+
         public void AddCategory(string CategoryName, int SectionId)
         {
             var context = new WildlifeContext();
@@ -164,8 +170,8 @@ namespace MyGardenWildlife2.Helpers
             var species = context.Species.Where((e) => e.Id == SpeciesId).First();
             var sighting = new SightingModel();
             species.SightingList.Add(sighting);
-            sighting.When = When;
-            sighting.Where = Where;
+            sighting.WhenSeen = When;
+            sighting.WhereSeen = Where;
             sighting.HowMany = HowMany;
             sighting.Comment = Comment;
             context.SaveChanges();
@@ -175,7 +181,7 @@ namespace MyGardenWildlife2.Helpers
         {
             var context = new WildlifeContext();
             var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
-            var figure = new FigureModel();            
+            var figure = new FigureModel();
             sighting.FigureList.Add(figure);
             figure.Source = Source;
             figure.Alternative = Alternative;
@@ -184,18 +190,50 @@ namespace MyGardenWildlife2.Helpers
 
         }
 
-
-            /*Loop through each category.
-             *For each category, loop through species
-             * For each species, show CommonName, LatinName, and if applicable, sighting information.
-             * Sighting information to show includes When, where, how many (if given), comments (if given) and a figure (if applicable)
-             * Where there is a figure, show the caption and retrieve the image.
-             * The image has a source and an alternative.
-             * 
-             * 
-             * 
-             * 
-             * 
-             */
+        //Deletes
+        public void DeleteSection(int SectionId)
+        {
+            var context = new WildlifeContext();
+            var section = context.Sections.Where((e) => e.Id == SectionId).First();
+            context.Sections.Remove(section);
+            context.SaveChanges();
         }
+
+        public void DeleteCategory(int CategoryId)
+        {
+            var context = new WildlifeContext();
+            var category = context.Categories.Where((e) => e.Id == CategoryId).First();
+            context.Categories.Remove(category);
+            context.SaveChanges();
+        }
+
+        public void DeleteSpecies(int SpeciesId)
+        {
+            var context = new WildlifeContext();
+            var species = context.Species.Where((e) => e.Id == SpeciesId).First();
+            context.Species.Remove(species);
+            context.SaveChanges();
+        }
+
+
+
+        public void DeleteSighting(int SightingId)
+        {
+            var context = new WildlifeContext();
+            var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
+            context.Sighting.Remove(sighting);
+            context.SaveChanges();
+        }
+
+        public void DeleteFigure(int FigureId)
+        {
+            var context = new WildlifeContext();
+            var figure = context.Figure.Where((e) => e.Id == FigureId).First();
+            context.Figure.Remove(figure);
+            context.SaveChanges();
+        }
+
+
+
+    }
 }

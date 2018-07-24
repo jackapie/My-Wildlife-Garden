@@ -48,8 +48,8 @@ namespace MyGardenWildlife2.Helpers
                             {
                                 new SightingModel
                                 {
-                                    Where = "Meadow",
-                                    When = new DateTime(2018,6,25),
+                                    WhereSeen = "Meadow",
+                                    WhenSeen = new DateTime(2018,6,25),
                                 }
                             }
                         },
@@ -61,8 +61,8 @@ namespace MyGardenWildlife2.Helpers
                             {
                                 new SightingModel
                                 {
-                                    Where = "Meadow, on corn chamomile",
-                                    When = null,//"24th June 2015",
+                                    WhereSeen = "Meadow, on corn chamomile",
+                                    WhenSeen = null,//"24th June 2015",
                                     HowMany = 1,
                                     FigureList = new List<FigureModel>() {
                                         new FigureModel()
@@ -85,8 +85,8 @@ namespace MyGardenWildlife2.Helpers
                             {
                                 new SightingModel
                                 {
-                                    Where = "Meadow",
-                                    When = null,//"27th June 2017",
+                                    WhereSeen = "Meadow",
+                                    WhenSeen = null,//"27th June 2017",
                                     HowMany = 1,
                                     Comment = "Aberration lanceolata.",
                                      FigureList = new List<FigureModel>() {new FigureModel()
@@ -109,8 +109,8 @@ namespace MyGardenWildlife2.Helpers
                             {
                                 new SightingModel
                                 {
-                                    Where ="South-Facing border",
-                                    When = null,//"24th June 2018",
+                                    WhereSeen ="South-Facing border",
+                                    WhenSeen = null,//"24th June 2018",
                                     HowMany = 2
                                 }
                             }
@@ -179,8 +179,8 @@ namespace MyGardenWildlife2.Helpers
                         {
                             new SightingModel
                             {
-                                Where = "North Border, on rose leaf",
-                                When  =null,//"30th May 2017",
+                                WhereSeen = "North Border, on rose leaf",
+                                WhenSeen  =null,//"30th May 2017",
                                 FigureList = new List<FigureModel>() { new FigureModel()
                                 {
                                     Caption ="Cockchafer, 30/5/2017",
@@ -219,9 +219,9 @@ namespace MyGardenWildlife2.Helpers
                         {
                             new SightingModel
                             {
-                                Where = "Near pond, visiting a poppy",
+                                WhereSeen = "Near pond, visiting a poppy",
                                 HowMany = 1,
-                                When = null,//"26th June 2018"
+                                WhenSeen = null,//"26th June 2018"
                             }
                         }
 

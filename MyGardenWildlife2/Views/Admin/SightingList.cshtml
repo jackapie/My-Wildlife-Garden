@@ -1,9 +1,10 @@
 ﻿@model MyGardenWildlife2.Models.SpeciesModel
 @{
-    ViewBag.Title = Model.CommonName + Model.LatinName + "Sighting List";
+    ViewBag.Title = "SightingList" + Model.CommonName + Model.LatinName;
+    ViewBag.Heading = "Sighting List: " + Model.CommonName + " " + Model.LatinName;
 }
 
-<h2>@Model.CommonName @Model.LatinName Sighting List</h2>
+
 
 <table>
     <tr>

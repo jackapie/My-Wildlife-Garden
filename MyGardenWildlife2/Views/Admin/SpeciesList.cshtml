@@ -1,9 +1,10 @@
 ﻿@model MyGardenWildlife2.Models.CategoryModel
 @{
-    ViewBag.Title = @Model.CategoryName + "List";
+    ViewBag.Title = "SpeciesList" + @Model.CategoryName;
+    ViewBag.Heading = "Species List: " + @Model.CategoryName;
 }
 
-<h2>@Model.CategoryName List</h2>
+
 
 <table>
     <tr>

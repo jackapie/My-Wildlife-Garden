@@ -1,9 +1,10 @@
 ﻿@model MyGardenWildlife2.Models.SectionModel
 @{
-    ViewBag.Title = @Model.SectionName + "Admin";
+    ViewBag.Title = "CategoryList" + @Model.SectionName;
+    ViewBag.Heading = "Category List: " + @Model.SectionName;
 }
 
-<h2> @Model.SectionName Admin</h2>
+
 <table>
     <tr>
         <td>Category Name</td>

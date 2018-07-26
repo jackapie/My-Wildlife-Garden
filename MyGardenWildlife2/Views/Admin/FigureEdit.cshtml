@@ -1,23 +1,23 @@
 ﻿@model MyGardenWildlife2.Models.FigureModel
 @{
-    ViewBag.Title = Model.SightingModel.SpeciesModel.CommonName + Model.Source + "Figure Edit";
-    ViewBag.Heading = "Figure Edit";
+    ViewBag.Title = "FigureEdit" + Model.SightingModel.SpeciesModel.CommonName + Model.Source;
+    ViewBag.Heading = "Figure Edit: " + Model.SightingModel.SpeciesModel.CommonName + " " + Model.Source;
 }
 
-<h2>@Model.SightingModel.SpeciesModel.CommonName @Model.Source Figure Edit</h2>
+<h2>Edit figure details:</h2>
 
 <form action="~/admin/FigureSave" method="post">
     <input type="hidden" name="FigureId" value="@Model.Id"/>
     <input type="hidden" name="SightingId" value="@Model.SightingModel.Id" />
     Source URL:
     <input type="text" name="Source" value="@Model.Source" />
-    <br />
+    <br /><br />
     Alternative message:
     <input type="text" name="Alternative" value="@Model.Alternative"/>
-    <br />
+    <br /><br />
     Figure caption:
     <input type="text" name="Caption" value="@Model.Caption" />
-    <br />
+    <br /><br />
     <input type="Submit" value="submit" />
 </form>
 

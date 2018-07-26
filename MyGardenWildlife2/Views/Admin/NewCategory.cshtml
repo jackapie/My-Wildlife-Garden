@@ -1,16 +1,18 @@
 ﻿@model int?
 @{
-    ViewBag.Title = "New Category";
+    ViewBag.Title = "NewCategory";
+    ViewBag.Heading = "New Category";
 }
 
-<h2>New Category</h2>
+
+<h2>Add new category:</h2>
 
 <form action="~/admin/CategoryAdd" method="post">
-    
+
     <input type="hidden" name="SectionId" value="@Model" />
-    CategoryName:
+    Category Name:
     <input type="text" name="CategoryName" value="" />
-    <br />
+    <br /><br />
     <input type="submit" value="submit" />
 
 </form>

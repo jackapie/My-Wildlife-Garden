@@ -1,25 +1,26 @@
 ﻿@model int?
 @{
     ViewBag.Title = "NewSighting";
+    ViewBag.Heading = "New Sighting";
 }
 
-<h2>NewSighting</h2>
+<h2>Add new Sighting</h2>
 
 <form action="~/admin/SightingAdd" method="post">
    
     <input type="hidden" name="SpeciesId" value="@Model" />
     When:
     <input type="datetime" name="When" value="dd/mm/yyyy" />
-    <br />
+    <br /><br />
     Where:
     <input type="text" name="Where" value="" />
-    <br />
+    <br /><br />
     How many:
     <input type="number" name="HowMany" value="" />
-    <br />
+    <br /><br />
     Comment:
     <input type="text" name="Comment" value="" />
-    <br />
+    <br /><br />
     <input type="submit" value="submit" />
 
 </form>

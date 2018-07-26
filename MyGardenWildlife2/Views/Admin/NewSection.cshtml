@@ -1,15 +1,17 @@
 ﻿@model MyGardenWildlife2.Models.SectionModel
 @{
-    ViewBag.Title = "New Section";
+    ViewBag.Title = "NewSection";
+    ViewBag.Heading = "New Section";
 }
 
-<h2>New Section</h2>
+<h2>Add new Section:</h2>
+
 <form action="~/admin/SectionAdd" method="post">
-    SectionName:
+    Section Name:
     <input type="text" name="SectionName" value="" />
-    <br />
-    SectionIntro:
+    <br /><br />
+    Section Intro:
     <input type="text" name="SectionIntro" value="" />
-    <br />
+    <br /><br />
     <input type="submit" value="submit" />
 </form>

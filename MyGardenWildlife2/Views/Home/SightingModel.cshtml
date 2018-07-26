@@ -4,7 +4,8 @@
     <div>
 
         <p>
-            @Model.WhenSeen @Model.WhereSeen.  @if (Model.HowMany!= null)
+            @if (Model.WhenSeen != null){ @Model.WhenSeen.Value.ToShortDateString()} 
+            @Model.WhereSeen  @if (Model.HowMany!= null)
             {
                 <span>Number seen: @Model.HowMany</span>
             }

@@ -1,7 +1,7 @@
 ﻿@model MyGardenWildlife2.Models.SightingModel
 @{
-    ViewBag.Title = "FigureList" + Model.SpeciesModel.CommonName + Model.WhenSeen;
-    ViewBag.Heading = "Figure List: " + Model.SpeciesModel.CommonName + " " + Model.WhenSeen;
+    ViewBag.Title = "FigureList" + Model.SpeciesModel.CommonName + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
+    ViewBag.Heading = "Figure List: " + Model.SpeciesModel.CommonName + " " + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
 }
 
 

@@ -109,12 +109,12 @@ namespace MyGardenWildlife2.Helpers
             context.SaveChanges();
         }
 
-        public void SetSighting(int SightingId, DateTime When, string Where, int HowMany, string Comment)
+        public void SetSighting(int SightingId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)
         {
             var context = new WildlifeContext();
             var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
-            sighting.WhenSeen = When;
-            sighting.WhereSeen = Where;
+            sighting.WhenSeen = WhenSeen;
+            sighting.WhereSeen = WhereSeen;
             sighting.HowMany = HowMany;
             sighting.Comment = Comment;
             context.SaveChanges();

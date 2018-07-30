@@ -42,3 +42,16 @@ img {
 .speciesLatin {
     font-style: italic
 }
+table{
+    border-collapse: collapse;
+}
+table, thead, tbody, th, td {
+    border:thin solid;
+    padding: 15px;
+}
+
+
+
+thead{
+    font-weight:bold;
+}

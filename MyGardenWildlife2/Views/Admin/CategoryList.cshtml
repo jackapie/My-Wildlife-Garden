@@ -6,27 +6,32 @@
 
 
 <table>
-    <tr>
-        <td>Category Name</td>
-        <td>Edit</td>
-        <td>Species</td>
-        <td>Delete</td>
-    </tr>
-    @foreach (var categoryObject in Model.CategoryList)
-    {
+    <thead>
         <tr>
-            <td>@categoryObject.CategoryName</td>
-            <td>
-                <a href="~/admin/CategoryEdit/@categoryObject.Id">Edit</a>
-            </td>
-            <td>
-                <a href="~/admin/SpeciesList/@categoryObject.Id">SpeciesList</a>
-            </td>
-            <td>
-                <a href="~/admin/CategoryDelete/@categoryObject.Id">Delete</a>
-            </td>
+            <td>Category Name</td>
+            <td>Edit</td>
+            <td>Species</td>
+            <td>Delete</td>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var categoryObject in Model.CategoryList)
+        {
+            <tr>
+                <td>@categoryObject.CategoryName</td>
+                <td>
+                    <a href="~/admin/CategoryEdit/@categoryObject.Id">Edit</a>
+                </td>
+                <td>
+                    <a href="~/admin/SpeciesList/@categoryObject.Id">SpeciesList</a>
+                </td>
+                <td>
+                    <a href="~/admin/CategoryDelete/@categoryObject.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+   
 
 </table>
 

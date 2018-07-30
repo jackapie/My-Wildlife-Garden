@@ -9,23 +9,30 @@
 <h2>@Model.SpeciesModel.CommonName @Model.WhenSeen Figure List</h2>
 
 <table>
-    <tr>
-        <td>Source</td>
-        <td>Aternative</td>
-        <td>Caption</td>
-        <td>Edit</td>
-        <td>Delete</td>
-    </tr>
-    @foreach (var figureObject in Model.FigureList)
-    {
+    <thead>
         <tr>
-            <td>@figureObject.Source</td>
-            <td>@figureObject.Alternative</td>
-            <td>@figureObject.Caption</td>
-            <td><a href="~/admin/FigureEdit/@figureObject.Id">Edit</a></td>
-            <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
+            <th>Source</th>
+            <th>Aternative</th>
+            <th>Caption</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
         </tr>
-    }
+    </thead>
+
+    <tbody>
+        @foreach (var figureObject in Model.FigureList)
+        {
+            <tr>
+                <td>@figureObject.Source</td>
+                <td>@figureObject.Alternative</td>
+                <td>@figureObject.Caption</td>
+                <td><a href="~/admin/FigureEdit/@figureObject.Id">Edit</a></td>
+                <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+   
 </table>
 <br />
 

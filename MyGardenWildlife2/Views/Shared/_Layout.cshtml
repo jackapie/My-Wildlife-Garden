@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <h1>@ViewBag.Heading</h1>
+    <h1>@ViewBag.Heading <span class="speciesLatin">@ViewBag.LatinHeading</span></h1>
     <p class="headerLinks">
         <a href="~/home/index">Home</a>
         @foreach (var sectionObject in dbHelper.GetSectionList())

@@ -1,7 +1,7 @@
-﻿@model int?
+﻿@model MyGardenWildlife2.Models.SectionModel
 @{
-    ViewBag.Title = "NewCategory";
-    ViewBag.Heading = "New Category";
+    ViewBag.Title = "NewCategory" + Model.SectionName;
+    ViewBag.Heading = "New Category: " + Model.SectionName;
 }
 
 
@@ -9,7 +9,7 @@
 
 <form action="~/admin/CategoryAdd" method="post">
 
-    <input type="hidden" name="SectionId" value="@Model" />
+    <input type="hidden" name="SectionId" value="@Model.Id" />
     Category Name:
     <input type="text" name="CategoryName" value="" />
     <br /><br />

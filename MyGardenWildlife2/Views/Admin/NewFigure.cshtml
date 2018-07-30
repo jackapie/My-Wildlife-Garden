@@ -1,7 +1,7 @@
-﻿@model int?
+﻿@model MyGardenWildlife2.Models.SightingModel
 @{
-    ViewBag.Title = "NewFigure";
-    ViewBag.Heading = "New Figure";
+    ViewBag.Title = Model.SpeciesModel.CommonName + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "") + "NewFigure";
+    ViewBag.Heading = "New Figure: " + Model.SpeciesModel.CommonName + " " + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
 }
 
 
@@ -9,7 +9,7 @@
 
 <form action="~/admin/FigureAdd" method="post">
     
-    <input type="hidden" name="SightingId" value="@Model" />
+    <input type="hidden" name="SightingId" value="@Model.Id" />
     Source URL:
     <input type="text" name="Source" value="" />
     <br /><br />

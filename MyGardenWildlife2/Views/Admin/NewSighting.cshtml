@@ -1,14 +1,14 @@
-﻿@model int?
+﻿@model MyGardenWildlife2.Models.SpeciesModel
 @{
-    ViewBag.Title = "NewSighting";
-    ViewBag.Heading = "New Sighting";
+    ViewBag.Title = "NewSighting" + Model.CommonName;
+    ViewBag.Heading = "New Sighting: " + Model.CommonName;
 }
 
 <h2>Add new Sighting</h2>
 
 <form action="~/admin/SightingAdd" method="post">
    
-    <input type="hidden" name="SpeciesId" value="@Model" />
+    <input type="hidden" name="SpeciesId" value="@Model.Id" />
     When:
     <input type="datetime" name="When" value="dd/mm/yyyy" />
     <br /><br />

@@ -1,14 +1,14 @@
-﻿@model int?
+﻿@model MyGardenWildlife2.Models.CategoryModel
 @{
-    ViewBag.Title = "NewSpecies";
-    ViewBag.Heading = "New Species";
+    ViewBag.Title = "NewSpecies" + Model.CategoryName;
+    ViewBag.Heading = "New Species: " + Model.CategoryName;
 }
 
 <h2>Add new Species</h2>
 
 <form action="~/admin/SpeciesAdd" method="post">
 
-    <input type="hidden" name="CategoryId" value="@Model" />
+    <input type="hidden" name="CategoryId" value="@Model.Id" />
     Common Name:
     <input type="text" name="CommonName" value="" />
     <br /><br />

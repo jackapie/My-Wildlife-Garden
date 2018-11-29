@@ -154,19 +154,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DatabaseHelper.cs" />
-    <Compile Include="Helpers\DataHelperClass.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
     <Compile Include="Models\WildlifeContext.cs" />
     <Compile Include="Models\SightingModel.cs" />
     <Compile Include="Models\SpeciesModel.cs" />
     <Compile Include="Models\FigureModel.cs" />
-    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +180,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\Chafer.JPG" />
     <Content Include="images\daisyBorder.jpg" />
+    <Content Include="images\Longitarsus beetle.jpg" />
     <Content Include="images\Meadow browns.JPG" />
     <Content Include="images\painted_lady.JPG" />
     <Content Include="images\Pond.JPG" />
@@ -194,6 +194,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -206,6 +207,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Style.css" />
+    <Content Include="Views\Admin\CategoryList.cshtml" />
+    <Content Include="Views\Admin\CategoryEdit.cshtml" />
+    <Content Include="Views\Admin\FigureList.cshtml" />
+    <Content Include="Views\Admin\FigureEdit.cshtml" />
+    <Content Include="Views\Admin\NewSection.cshtml" />
+    <Content Include="Views\Admin\NewCategory.cshtml" />
+    <Content Include="Views\Admin\NewSpecies.cshtml" />
+    <Content Include="Views\Admin\NewSighting.cshtml" />
+    <Content Include="Views\Admin\NewFigure.cshtml" />
+    <None Include="Views\Admin\SectionEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,6 +236,11 @@
     <Content Include="Views\Home\SpeciesModel.cshtml" />
     <Content Include="Views\Home\FigureModel.cshtml" />
     <Content Include="Views\Home\SightingModel.cshtml" />
+    <Content Include="Views\Admin\SectionList.cshtml" />
+    <Content Include="Views\Admin\SpeciesList.cshtml" />
+    <Content Include="Views\Admin\SpeciesEdit.cshtml" />
+    <Content Include="Views\Admin\SightingList.cshtml" />
+    <Content Include="Views\Admin\SightingEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

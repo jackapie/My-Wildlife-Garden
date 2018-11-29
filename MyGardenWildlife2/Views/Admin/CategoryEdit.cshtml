@@ -1,0 +1,18 @@
+﻿@model MyGardenWildlife2.Models.CategoryModel
+@{
+    ViewBag.Title = "CategoryEdit" + @Model.CategoryName;
+    ViewBag.Heading = "Category Edit: " + @Model.CategoryName;
+}
+
+<h2>Edit category details:</h2>
+
+<form action="~/admin/CategorySave" method="post">
+
+    <input type="hidden" name="CategoryId" value="@Model.Id"/>
+    <input type="hidden" name="SectionId" value="@Model.SectionModel.Id" />
+    Category Name:
+    <input type="text" name="CategoryName" value="@Model.CategoryName"/>
+    <br /><br />
+    <input type="submit" value="submit"/>
+
+</form>

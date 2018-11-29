@@ -1,0 +1,27 @@
+﻿@model MyGardenWildlife2.Models.SightingModel
+@{
+    ViewBag.Title = Model.SpeciesModel.CommonName + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "") + "sightingEdit";
+    ViewBag.Heading = "Sighting Edit: " + Model.SpeciesModel.CommonName + " " + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
+}
+
+<h2>Edit sighting details:</h2>
+
+<form action="~/admin/SightingSave" method="post">
+    <input type="hidden" name="SightingId" value="@Model.Id"/>
+    <input type="hidden" name="SpeciesId" value="@Model.SpeciesModel.Id"/>
+    When seen:
+    <input type="datetime" name="WhenSeen" value=" @((Model.WhenSeen != null)? @Model.WhenSeen.Value.ToShortDateString():"") " />
+    <br /><br />
+    Where seen:
+    <input type="text" name="WhereSeen" value="@Model.WhereSeen" />
+    <br /><br />
+    How many:
+    <input type="number" name="HowMany" value="@Model.HowMany" />
+    <br /><br />
+    Comment:
+    <input type="text" name="Comment" value="@Model.Comment" />
+    <br /><br />
+    <input type="submit" value="submit" />
+
+</form>
+

@@ -1,0 +1,26 @@
+﻿@model MyGardenWildlife2.Models.SpeciesModel
+@{
+    ViewBag.Title = "NewSighting" + Model.CommonName;
+    ViewBag.Heading = "New Sighting: " + Model.CommonName;
+}
+
+<h2>Add new Sighting</h2>
+
+<form action="~/admin/SightingAdd" method="post">
+   
+    <input type="hidden" name="SpeciesId" value="@Model.Id" />
+    When:
+    <input type="datetime" name="When" value="dd/mm/yyyy" />
+    <br /><br />
+    Where:
+    <input type="text" name="Where" value="" />
+    <br /><br />
+    How many:
+    <input type="number" name="HowMany" value="" />
+    <br /><br />
+    Comment:
+    <input type="text" name="Comment" value="" />
+    <br /><br />
+    <input type="submit" value="submit" />
+
+</form>

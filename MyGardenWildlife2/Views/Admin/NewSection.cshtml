@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "NewSection";
+    ViewBag.Heading = "New Section";
+}
+
+<h2>Add new Section:</h2>
+
+<form action="~/admin/SectionAdd" method="post">
+    Section Name:
+    <input type="text" name="SectionName" value="" />
+    <br /><br />
+    Section Intro:
+    <input type="text" name="SectionIntro" value="" />
+    <br /><br />
+    <input type="submit" value="submit" />
+</form>

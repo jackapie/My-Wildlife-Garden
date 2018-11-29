@@ -1,0 +1,40 @@
+﻿@model MyGardenWildlife2.Models.SightingModel
+@{
+    ViewBag.Title = "FigureList" + Model.SpeciesModel.CommonName + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
+    ViewBag.Heading = "Figure List: " + Model.SpeciesModel.CommonName + " " + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
+}
+
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Aternative</th>
+            <th>Caption</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var figureObject in Model.FigureList)
+        {
+            <tr>
+                <td>@figureObject.Source</td>
+                <td>@figureObject.Alternative</td>
+                <td>@figureObject.Caption</td>
+                <td><a href="~/admin/FigureEdit/@figureObject.Id">Edit</a></td>
+                <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+   
+</table>
+<br />
+
+<a href="~/admin/NewFigure/@Model.Id">Add a new figure</a>
+
+

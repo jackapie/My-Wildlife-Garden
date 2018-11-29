@@ -12,5 +12,6 @@ namespace MyGardenWildlife2.Models
         public string Caption { get; set; }
         public string Source { get; set; }
         public string Alternative { get; set; }
+        public virtual SightingModel SightingModel { get; set; }
     }
 }

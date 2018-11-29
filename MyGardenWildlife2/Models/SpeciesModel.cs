@@ -11,6 +11,6 @@ namespace MyGardenWildlife2.Models
         public string CommonName { get; set; }
         public string LatinName { get; set; }
         public virtual List<SightingModel> SightingList { get; set; }
-        
+        public virtual CategoryModel CategoryModel { get; set;}
     }
 }

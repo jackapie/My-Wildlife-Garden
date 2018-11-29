@@ -1,0 +1,23 @@
+﻿@model MyGardenWildlife2.Models.SightingModel
+@{
+    ViewBag.Title = Model.SpeciesModel.CommonName + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "") + "NewFigure";
+    ViewBag.Heading = "New Figure: " + Model.SpeciesModel.CommonName + " " + ((Model.WhenSeen != null) ? @Model.WhenSeen.Value.ToShortDateString() : "");
+}
+
+
+<h2>Add new figure:</h2>
+
+<form action="~/admin/FigureAdd" method="post">
+    
+    <input type="hidden" name="SightingId" value="@Model.Id" />
+    Source URL:
+    <input type="text" name="Source" value="" />
+    <br /><br />
+    Alternative message:
+    <input type="text" name="Alternative" value="" />
+    <br /><br />
+    Figure Caption:
+    <input type="text" name="Caption" value="" />
+    <br /><br />
+    <input type="Submit" value="submit" />
+</form>

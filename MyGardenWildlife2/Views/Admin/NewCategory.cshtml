@@ -1,0 +1,18 @@
+﻿@model MyGardenWildlife2.Models.SectionModel
+@{
+    ViewBag.Title = "NewCategory" + Model.SectionName;
+    ViewBag.Heading = "New Category: " + Model.SectionName;
+}
+
+
+<h2>Add new category:</h2>
+
+<form action="~/admin/CategoryAdd" method="post">
+
+    <input type="hidden" name="SectionId" value="@Model.Id" />
+    Category Name:
+    <input type="text" name="CategoryName" value="" />
+    <br /><br />
+    <input type="submit" value="submit" />
+
+</form>

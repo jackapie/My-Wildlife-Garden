@@ -23,9 +23,6 @@ namespace MyGardenWildlife2.Helpers
                 GetSpidersData(),
                 GetSnailsData(),
 
-
-
-
             };
 
             return returnObject;

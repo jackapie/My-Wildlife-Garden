@@ -15,11 +15,10 @@ namespace MyGardenWildlife2.Helpers
              * Where there is a figure, show the caption and retrieve the image.
              * The image has a source and an alternative.
              */
-        //SectionModel is the return type, GetSection is a function that returns an object of type SectionModel.
-        //GetSection takes a parameter that is SectionName, a string.
+        
         public SectionModel GetSection(string SectionName)
         {
-            //Create an object of type WildlifeContext, assign this to variable "context"
+            
             var context = new WildlifeContext();
 
             //Within the WildlifeContext object "context", call "Sections", a property within WildlifeContext, returns an object
@@ -148,7 +147,7 @@ namespace MyGardenWildlife2.Helpers
             var section = context.Sections.Where((e) => e.Id == SectionId).First();
             var category = new CategoryModel();
 
-            section.CategoryList.Add(category);
+            (section.CategoryList).Add(category);
             category.CategoryName = CategoryName;
             context.SaveChanges();
         }

@@ -1,0 +1,29 @@
+﻿@{ 
+    var dbHelper = new MyGardenWildlife3.Helpers.DatabaseHelper();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" type="text/css" href="~/Style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/functions.js"></script>
+
+</head>
+<body>
+    @*<h1>@ViewBag.Heading <span class="speciesLatin">@ViewBag.LatinHeading</span></h1>
+    <p class="headerLinks">
+        <a href="~/home/index">Home Page</a>
+        @foreach (var sectionObject in dbHelper.GetSectionList())
+        {
+            <a href="~/home/Section/@sectionObject.Id">@sectionObject.SectionName</a> 
+        }
+        
+
+    </p>*@
+    @RenderBody()
+
+</body>
+</html>

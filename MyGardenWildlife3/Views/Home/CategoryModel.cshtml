@@ -1,0 +1,17 @@
+﻿@model MyGardenWildlife3.Models.CategoryModel
+@{var categoryId = "CATEGORY_" + Model.Id;}
+
+<div>
+    <h2>@Model.CategoryName</h2>
+    <div id=@categoryId class="speciesList">
+        <a href="#@categoryId" onclick="toggleSomething('#@categoryId div')">Show/hide</a>
+        <div>
+            @foreach (var species in Model.SpeciesList)
+            {
+                @Html.Partial("SpeciesModel", species)
+               
+            }
+
+        </div>
+    </div>
+</div>

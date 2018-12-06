@@ -200,6 +200,7 @@
     <Content Include="Views\Home\SectionView.cshtml" />
     <Content Include="Views\Home\SightingModel.cshtml" />
     <Content Include="Views\Home\SpeciesModel.cshtml" />
+    <Content Include="Views\Home\HomeScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

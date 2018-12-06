@@ -19,12 +19,18 @@ $(document).ready(function () {
     $(".headerLinks a").on("click", function () {
         var heading = $(this).text();
         $("h1").text(heading);
+
         var id = $(this).attr("id");
+        
         if (id === "homeHeader") {
-            $(".contentSection").html($("#homeSection"));
+            $.get("/Home/HomePage/", function (data) {
+                $(".contentSection").html(data);
+            });
         }
-        if (id !== "homeHeader") {
-            $(".contentSection").html("<p>something</p>");
+        else if (id !== "homeHeader") {
+            $.get("/Home/Section/" + id, function (data) {
+                $(".contentSection").html(data);
+            });
         }
 
 

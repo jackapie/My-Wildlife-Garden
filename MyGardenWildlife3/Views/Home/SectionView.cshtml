@@ -1,32 +1,29 @@
-﻿@* This file, SectionView.cshtml, replaces all individual page views,
-    ie. inverts.cshtml, birds.cshtml, etc. but not index.cshtml *@
+﻿
 
-@* Specify the type of object the view expects, so that Model. can be used for the Viewbag objects and the foreach loop. *@
 @model MyGardenWildlife3.Models.SectionModel
 
 
-@{
-    ViewBag.Title = Model.SectionName;
-    ViewBag.Heading = Model.SectionName;
-}
+@*@{
+        ViewBag.Title = Model.SectionName;
+        ViewBag.Heading = Model.SectionName;
+    }*@
 
 @* A generic intro paragraph, with a few words specific to each section, specified in the database in SectionIntro column*@
 
-<div class="contentSection" id="sectionSection">
-    <div>
-        <p>
-            This page lists <span>@Model.SectionIntro</span> in my garden. They have been organised into categories.
 
-        </p>
-    </div>
-@* Create a foreach loop, defining the variable category. CategoryList is a list of categoryModels. 
-   The loop goes through each item in the the list and displays the CategoryModel.cshtml view.  *@
-    <div>
-        @foreach (var category in Model.CategoryList)
-        {
-            @Html.Partial("CategoryModel", category)
-        }
+<div>
+    <p>
+        This page lists <span>@Model.SectionIntro</span> in my garden. They have been organised into categories.
 
-    </div>
+    </p>
+</div>
+@* Create a foreach loop, defining the variable category. CategoryList is a list of categoryModels.
+    The loop goes through each item in the the list and displays the CategoryModel.cshtml view.  *@
+<div>
+    @foreach (var category in Model.CategoryList)
+    {
+        @Html.Partial("CategoryModel", category)
+    }
 
 </div>
+

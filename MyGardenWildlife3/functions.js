@@ -25,14 +25,16 @@ $(document).ready(function () {
         if (id === "homeHeader") {
             $.get("/Home/HomePage/", function (data) {
                 $(".contentSection").html(data);
+                $('.photoSection p, .speciesList div').hide();
             });
         }
         else if (id !== "homeHeader") {
             $.get("/Home/Section/" + id, function (data) {
                 $(".contentSection").html(data);
+                $('.photoSection p, .speciesList div').hide();
             });
         }
-
+        
 
     });
 });

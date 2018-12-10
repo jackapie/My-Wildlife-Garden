@@ -17,8 +17,8 @@ function toggleSomething(whatToToggle) {
 $(document).ready(function () {
     $('.photoSection p, .speciesList div').hide();
     $(".headerLinks a").on("click", function () {
-        var heading = $(this).text();
-        $("h1").text(heading);
+
+        clickedOnTextToH1(this);
 
         var id = $(this).attr("id");
 
@@ -37,11 +37,15 @@ $(document).ready(function () {
     });
 
     $(".toSectionList").on("click", function () {
-        var heading = $(this).text();
-        $("h1").text(heading);
+        clickedOnTextToH1(this);
 
         $.get("/Admin/SectionList/", function (data) {
             $(".contentSection").html(data);
         });
     });
 });
+
+function clickedOnTextToH1(selector) {
+    var heading = $(selector).text();
+    $("h1").text(heading);
+}

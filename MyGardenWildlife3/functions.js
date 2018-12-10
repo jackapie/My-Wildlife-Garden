@@ -16,11 +16,11 @@ function toggleSomething(whatToToggle) {
 
 $(document).ready(function () {
     //could make this into a function that gets run on page load and then again at end of each ajax operation
-    homePageRady();
+    homePageReady();
     adminPageReady();
 });
 
-function homePageRady() {
+function homePageReady() {
     $('.photoSection p, .speciesList div').hide();
     $(".headerLinks a").on("click", function () {
         clickedOnTextToH1(this);
@@ -55,6 +55,14 @@ function adminPageReady() {
         clickedOnTextToH1(this);
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function(data) {
+            $(".contentSection").html(data);
+            adminPageReady();
+        });
+    });
+    $(".toCategoryList a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/CategoryList/" + id, function (data) {
             $(".contentSection").html(data);
             adminPageReady();
         });

@@ -18,8 +18,9 @@
                 <td class="sectionEdit">
                     <a href=# id=@sectionObject.Id>Edit @sectionObject.SectionName</a>
                 </td>
-                <td>
-                    <a href="~/admin/categoryList/@sectionObject.Id">Category List</a>
+                <td class="toCategoryList">
+                    <a href=# id="@sectionObject.Id">Category List: @sectionObject.SectionName</a>
+                    @*"~/admin/categoryList/@sectionObject.Id"*@
                 </td>
                 <td>
                     <a href="~/admin/SectionDelete/@sectionObject.Id">Delete</a>

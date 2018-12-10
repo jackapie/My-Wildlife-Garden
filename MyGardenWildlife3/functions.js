@@ -16,34 +16,39 @@ function toggleSomething(whatToToggle) {
 
 $(document).ready(function () {
     //could make this into a function that gets run on page load and then again at end of each ajax operation
-    pageReadyFn();
+    homePageRady();
+    adminPageReady();
 });
 
-function pageReadyFn() {
+function homePageRady() {
     $('.photoSection p, .speciesList div').hide();
-    $(".headerLinks a").on("click", function() {
+    $(".headerLinks a").on("click", function () {
         clickedOnTextToH1(this);
         var id = $(this).attr("id");
         if (id === "homeHeader") {
-            $.get("/Home/HomePage/", function(data) {
+            $.get("/Home/HomePage/", function (data) {
                 $(".contentSection").html(data);
-                pageReadyFn();
-                //$('.photoSection p, .speciesList div').hide();
+                
+                $('.photoSection p, .speciesList div').hide();
             });
         }
         else if (id !== "homeHeader") {
-            $.get("/Home/Section/" + id, function(data) {
+            $.get("/Home/Section/" + id, function (data) {
                 $(".contentSection").html(data);
-                pageReadyFn();
-                //$('.photoSection p, .speciesList div').hide();
+                adminPageReady();
+                $('.photoSection p, .speciesList div').hide();
             });
         }
     });
+}
+
+function adminPageReady() {
+   
     $("#toSectionList").on("click", function() {
         clickedOnTextToH1(this);
         $.get("/Admin/SectionList/", function(data) {
             $(".contentSection").html(data);
-            pageReadyFn();
+            adminPageReady();
         });
     });
     $(".sectionEdit a").on("click", function() {
@@ -51,7 +56,7 @@ function pageReadyFn() {
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function(data) {
             $(".contentSection").html(data);
-            pageReadyFn();
+            adminPageReady();
         });
     });
 }

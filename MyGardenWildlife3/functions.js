@@ -21,7 +21,7 @@ $(document).ready(function () {
         $("h1").text(heading);
 
         var id = $(this).attr("id");
-        
+
         if (id === "homeHeader") {
             $.get("/Home/HomePage/", function (data) {
                 $(".contentSection").html(data);
@@ -34,7 +34,14 @@ $(document).ready(function () {
                 $('.photoSection p, .speciesList div').hide();
             });
         }
-        
+    });
 
+    $(".toSectionList").on("click", function () {
+        var heading = $(this).text();
+        $("h1").text(heading);
+
+        $.get("/Admin/SectionList/", function (data) {
+            $(".contentSection").html(data);
+        });
     });
 });

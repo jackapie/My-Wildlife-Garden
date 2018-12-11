@@ -17,7 +17,7 @@ function toggleSomething(whatToToggle) {
 $(document).ready(function () {
     //could make this into a function that gets run on page load and then again at end of each ajax operation
     homePageReady();
-    adminPageReady();
+    adminIndexReady();
 });
 
 function homePageReady() {
@@ -35,39 +35,56 @@ function homePageReady() {
         else if (id !== "homeHeader") {
             $.get("/Home/Section/" + id, function (data) {
                 $(".contentSection").html(data);
-                adminPageReady();
+                adminIndexReady();
                 $('.photoSection p, .speciesList div').hide();
             });
         }
     });
 }
 
-function adminPageReady() {
+function adminIndexReady() {
    
-    $("#toSectionList").on("click", function() {
+    adminSectionList();
+    
+    
+}
+
+function adminSectionList() {
+    $("#toSectionList").on("click", function () {
         clickedOnTextToH1(this);
-        $.get("/Admin/SectionList/", function(data) {
+        $.get("/Admin/SectionList/", function (data) {
             $(".contentSection").html(data);
-            adminPageReady();
-        });
-    });
-    $(".sectionEdit a").on("click", function() {
-        clickedOnTextToH1(this);
-        var id = $(this).attr("id");
-        $.get("/Admin/SectionEdit/" + id, function(data) {
-            $(".contentSection").html(data);
-            adminPageReady();
-        });
-    });
-    $(".toCategoryList a").on("click", function () {
-        clickedOnTextToH1(this);
-        var id = $(this).attr("id");
-        $.get("/Admin/CategoryList/" + id, function (data) {
-            $(".contentSection").html(data);
-            adminPageReady();
+            adminSectionEdit();
+            adminCategoryList();
         });
     });
 }
+
+function adminSectionEdit() {
+    $(".sectionEdit a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/SectionEdit/" + id, function (data) {
+            $(".contentSection").html(data);
+            
+        });
+    });
+}
+
+function adminCategoryList() {
+    $(".toCategoryList a").on("click", function() {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/CategoryList/" + id, function(data) {
+            $(".contentSection").html(data);
+            adminIndexReady();
+        });
+    });
+}
+
+
+
+
 
 function clickedOnTextToH1(selector) {
     var heading = $(selector).text();

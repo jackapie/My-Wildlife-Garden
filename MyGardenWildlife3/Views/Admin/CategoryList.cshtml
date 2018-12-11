@@ -14,11 +14,11 @@
         {
             <tr>
                 <td>@categoryObject.CategoryName</td>
-                <td>
-                    <a href="~/admin/CategoryEdit/@categoryObject.Id">Edit</a>
+                <td class="toCategoryEdit">
+                    <a href=# id="@categoryObject.Id">Edit @categoryObject.CategoryName</a>
                 </td>
-                <td>
-                    <a href="~/admin/SpeciesList/@categoryObject.Id">SpeciesList</a>
+                <td class="toSpeciesList">
+                    <a href=# id="@categoryObject.Id">SpeciesList: @categoryObject.CategoryName</a>
                 </td>
                 <td>
                     <a href="~/admin/CategoryDelete/@categoryObject.Id">Delete</a>

@@ -77,13 +77,32 @@ function adminCategoryList() {
         var id = $(this).attr("id");
         $.get("/Admin/CategoryList/" + id, function(data) {
             $(".contentSection").html(data);
-            adminIndexReady();
+            
+            adminCategoryEdit();
+            adminSpeciesList();
         });
     });
 }
 
+function adminCategoryEdit() {
+    $(".toCategoryEdit a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/CategoryEdit/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });
+}
 
-
+function adminSpeciesList() {
+    $(".toSpeciesList a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/SpeciesList/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });
+}
 
 
 function clickedOnTextToH1(selector) {

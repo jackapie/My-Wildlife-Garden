@@ -44,7 +44,7 @@ namespace MyGardenWildlife3.Controllers
         {
           
             var species = dbHelper.GetSpeciesById(Id);
-            return View(species);
+            return View("SightingList",species);
         }
 
         

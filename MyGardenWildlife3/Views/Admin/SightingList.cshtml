@@ -1,0 +1,47 @@
+﻿@model MyGardenWildlife3.Models.SpeciesModel
+
+<table>
+    <thead>
+        <tr>
+            <td>When</td>
+            <td>Where</td>
+            <td>How Many</td>
+            <td>Comment</td>
+            <td>Edit</td>
+            <td>Figures</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sightingObject in Model.SightingList)
+        {
+            <tr>
+                <td>
+                    @if (sightingObject.WhenSeen != null)
+                    {
+                        <span>@sightingObject.WhenSeen.Value.ToShortDateString()</span>
+                    }
+                </td>
+                <td>@sightingObject.WhereSeen</td>
+                <td>@sightingObject.HowMany</td>
+                <td>@sightingObject.Comment</td>
+                <td>
+
+                    <a href="~/admin/sightingEdit/@sightingObject.Id">Edit</a>
+                </td>
+                <td>
+                    <a href="~/admin/figureList/@sightingObject.Id">Figure list</a>
+                </td>
+                <td>
+                    <a href="~/admin/SightingDelete/@sightingObject.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<br />
+
+<a href="~/admin/NewSighting/@Model.Id">Add a new sighting</a>
+

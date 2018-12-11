@@ -17,10 +17,11 @@
             <tr>
                 <td>@speciesObject.CommonName</td>
                 <td class="speciesLatin">@speciesObject.LatinName</td>
-                <td>
-                    <a href="~/admin/SpeciesEdit/@speciesObject.Id">Edit</a>
+                <td class="toSpeciesEdit">
+                    <a href=# id="@speciesObject.Id">Edit @speciesObject.CommonName</a>
                 </td>
-                <td><a href="~/admin/SightingList/@speciesObject.Id">Sighting List</a></td>
+                <td class="toSightingList">
+                <a href=# id="@speciesObject.Id">Sighting List @speciesObject.CommonName <i>@speciesObject.LatinName</i></a></td>
                 <td>
                     <a href="~/admin/SpeciesDelete/@speciesObject.Id">Delete</a>
                 </td>

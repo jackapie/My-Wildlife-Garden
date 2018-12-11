@@ -100,9 +100,30 @@ function adminSpeciesList() {
         var id = $(this).attr("id");
         $.get("/Admin/SpeciesList/" + id, function (data) {
             $(".contentSection").html(data);
+            adminSpeciesEdit();
+            adminSightingList();
         });
     });
 }
+
+function adminSpeciesEdit() {
+    $(".toSpeciesEdit a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/SpeciesEdit/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });
+}
+
+function adminSightingList() {
+    $(".toSightingList a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/SightingList/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });}
 
 
 function clickedOnTextToH1(selector) {

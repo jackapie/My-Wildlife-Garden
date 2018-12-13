@@ -25,12 +25,12 @@
                 <td>@sightingObject.WhereSeen</td>
                 <td>@sightingObject.HowMany</td>
                 <td>@sightingObject.Comment</td>
-                <td>
+                <td class="toSightingEdit">
 
-                    <a href="~/admin/sightingEdit/@sightingObject.Id">Edit</a>
+                    <a href=# id="@sightingObject.Id">Edit <i>@Model.LatinName</i> Sighting</a>
                 </td>
-                <td>
-                    <a href="~/admin/figureList/@sightingObject.Id">Figure list</a>
+                <td class="toFigureList">
+                    <a href=# id="@sightingObject.Id">Figure List <i>@Model.LatinName</i> @sightingObject.WhenSeen.Value.ToShortDateString()</a>
                 </td>
                 <td>
                     <a href="~/admin/SightingDelete/@sightingObject.Id">Delete</a>

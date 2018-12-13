@@ -1,0 +1,36 @@
+﻿@model MyGardenWildlife3.Models.SightingModel
+
+<table>
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Aternative</th>
+            <th>Caption</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var figureObject in Model.FigureList)
+        {
+            <tr>
+                <td>@figureObject.Source</td>
+                <td>@figureObject.Alternative</td>
+                <td>@figureObject.Caption</td>
+                <td class="toFigureEdit">
+                <a href=# id="@figureObject.Id">Edit Figure: @figureObject.Caption</a>
+                </td>
+                <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<br />
+
+<a href="~/admin/NewFigure/@Model.Id">Add a new figure</a>
+
+
+

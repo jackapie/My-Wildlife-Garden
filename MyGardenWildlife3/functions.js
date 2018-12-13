@@ -122,9 +122,42 @@ function adminSightingList() {
         var id = $(this).attr("id");
         $.get("/Admin/SightingList/" + id, function (data) {
             $(".contentSection").html(data);
+            adminSightingEdit();
+            adminFigureList();
         });
-    });}
+    });
+}
 
+function adminSightingEdit() {
+    $(".toSightingEdit a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/SightingEdit/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });
+}
+
+function adminFigureList() {
+    $(".toFigureList a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/FigureList/" + id, function (data) {
+            $(".contentSection").html(data);
+            adminFigureEdit();
+        });
+    });
+}
+
+function adminFigureEdit() {
+    $(".toFigureEdit a").on("click", function () {
+        clickedOnTextToH1(this);
+        var id = $(this).attr("id");
+        $.get("/Admin/FigureEdit/" + id, function (data) {
+            $(".contentSection").html(data);
+        });
+    });
+}
 
 function clickedOnTextToH1(selector) {
     var heading = $(selector).text();

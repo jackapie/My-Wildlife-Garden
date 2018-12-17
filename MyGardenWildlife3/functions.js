@@ -56,7 +56,7 @@ function adminSectionList() {
             $(".contentSection").html(data);
             adminSectionEdit();
             adminCategoryList();
-            adminBackHome();
+            adminReloadToIndex();
 
         });
     });
@@ -68,6 +68,7 @@ function adminSectionEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminReloadToIndex();
 
         });
     });
@@ -82,12 +83,13 @@ function adminCategoryList() {
 
             adminCategoryEdit();
             adminSpeciesList();
+            adminReloadToIndex();
         });
     });
 }
 
-function adminBackHome() {
-    $("#toAdminIndex").on("click", function () {
+function adminReloadToIndex() {
+    $(".toAdminIndex").on("click", function () {
         location.reload();
         adminIndexReady();
     });
@@ -99,6 +101,7 @@ function adminCategoryEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/CategoryEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminReloadToIndex();
         });
     });
 }
@@ -111,6 +114,7 @@ function adminSpeciesList() {
             $(".contentSection").html(data);
             adminSpeciesEdit();
             adminSightingList();
+            adminReloadToIndex();
         });
     });
 }
@@ -121,6 +125,7 @@ function adminSpeciesEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/SpeciesEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminReloadToIndex();
         });
     });
 }
@@ -133,6 +138,7 @@ function adminSightingList() {
             $(".contentSection").html(data);
             adminSightingEdit();
             adminFigureList();
+            adminReloadToIndex();
         });
     });
 }
@@ -143,6 +149,7 @@ function adminSightingEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/SightingEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminReloadToIndex();
         });
     });
 }
@@ -154,6 +161,7 @@ function adminFigureList() {
         $.get("/Admin/FigureList/" + id, function (data) {
             $(".contentSection").html(data);
             adminFigureEdit();
+            adminReloadToIndex();
         });
     });
 }
@@ -164,6 +172,7 @@ function adminFigureEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/FigureEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminReloadToIndex();
         });
     });
 }

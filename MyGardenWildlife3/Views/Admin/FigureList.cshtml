@@ -20,7 +20,7 @@
                 <td>@figureObject.Alternative</td>
                 <td>@figureObject.Caption</td>
                 <td class="toFigureEdit">
-                <a href=# id="@figureObject.Id">Edit Figure: @figureObject.Caption</a>
+                    <a href=# id="@figureObject.Id">Edit Figure: @figureObject.Caption</a>
                 </td>
                 <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
             </tr>
@@ -31,6 +31,9 @@
 <br />
 
 <a href="~/admin/NewFigure/@Model.Id">Add a new figure</a>
+
+<br /><br />
+<button type="button" id="toAdminIndex">Back to Admin Home</button>
 
 
 

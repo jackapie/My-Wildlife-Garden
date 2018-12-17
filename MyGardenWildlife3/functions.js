@@ -28,14 +28,14 @@ function homePageReady() {
         if (id === "homeHeader") {
             $.get("/Home/HomePage/", function (data) {
                 $(".contentSection").html(data);
-                
+
                 $('.photoSection p, .speciesList div').hide();
             });
         }
         else if (id !== "homeHeader") {
             $.get("/Home/Section/" + id, function (data) {
                 $(".contentSection").html(data);
-                adminIndexReady();
+
                 $('.photoSection p, .speciesList div').hide();
             });
         }
@@ -43,10 +43,10 @@ function homePageReady() {
 }
 
 function adminIndexReady() {
-   
+
     adminSectionList();
-    
-    
+
+
 }
 
 function adminSectionList() {
@@ -56,6 +56,8 @@ function adminSectionList() {
             $(".contentSection").html(data);
             adminSectionEdit();
             adminCategoryList();
+            adminBackHome();
+
         });
     });
 }
@@ -66,21 +68,28 @@ function adminSectionEdit() {
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function (data) {
             $(".contentSection").html(data);
-            
+
         });
     });
 }
 
 function adminCategoryList() {
-    $(".toCategoryList a").on("click", function() {
+    $(".toCategoryList a").on("click", function () {
         clickedOnTextToH1(this);
         var id = $(this).attr("id");
-        $.get("/Admin/CategoryList/" + id, function(data) {
+        $.get("/Admin/CategoryList/" + id, function (data) {
             $(".contentSection").html(data);
-            
+
             adminCategoryEdit();
             adminSpeciesList();
         });
+    });
+}
+
+function adminBackHome() {
+    $("#toAdminIndex").on("click", function () {
+        location.reload();
+        adminIndexReady();
     });
 }
 

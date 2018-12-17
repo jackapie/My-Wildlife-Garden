@@ -15,26 +15,27 @@
         {
             <tr>
                 <td>@sectionObject.SectionName</td>
+
                 <td class="sectionEdit">
                     <a href=# id=@sectionObject.Id>Edit @sectionObject.SectionName</a>
                 </td>
+
                 <td class="toCategoryList">
                     <a href=# id="@sectionObject.Id">Category List: @sectionObject.SectionName</a>
-                    @*"~/admin/categoryList/@sectionObject.Id"*@
                 </td>
+
                 <td>
                     <a href="~/admin/SectionDelete/@sectionObject.Id">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
-
-
-
 </table>
 
-<br />
+<br /><br />
 <a href="~/admin/NewSection">Add new section</a>
 
 @*add link or button back to admin page*@
+<br /><br />
+<button type="button" id="toAdminIndex">Back to Admin Home</button>
 

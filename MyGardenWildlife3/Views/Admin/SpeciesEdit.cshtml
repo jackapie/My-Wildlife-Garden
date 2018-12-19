@@ -1,6 +1,6 @@
 ﻿@model MyGardenWildlife3.Models.SpeciesModel
 
-<h2>Edit species details:</h2>
+<h2>Edit Species: @Model.CommonName <i>@Model.LatinName</i></h2>
 
 <form action="~/admin/SpeciesSave" method="post">
     <input type="hidden" name="SpeciesId" value="@Model.Id" />

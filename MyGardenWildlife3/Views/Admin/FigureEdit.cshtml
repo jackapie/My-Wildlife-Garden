@@ -1,6 +1,6 @@
 ﻿@model MyGardenWildlife3.Models.FigureModel
 
-<h2>Edit figure details:</h2>
+<h2>Edit Figure: @Model.Caption</h2>
 
 <form action="~/admin/FigureSave" method="post">
     <input type="hidden" name="FigureId" value="@Model.Id" />

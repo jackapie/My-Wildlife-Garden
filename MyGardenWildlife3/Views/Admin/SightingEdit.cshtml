@@ -1,6 +1,6 @@
 ﻿@model MyGardenWildlife3.Models.SightingModel
 
-<h2>Edit sighting details:</h2>
+<h2>Edit Sighting: @Model.SpeciesModel.CommonName <i>@Model.SpeciesModel.LatinName</i> @Model.WhenSeen.Value.ToShortDateString()</h2>
 
 <form action="~/admin/SightingSave" method="post">
     <input type="hidden" name="SightingId" value="@Model.Id" />

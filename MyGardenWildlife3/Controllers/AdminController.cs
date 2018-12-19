@@ -20,14 +20,14 @@ namespace MyGardenWildlife3.Controllers
         //Lists
         public ActionResult SectionList()
         {
-            
+
             var sections = dbHelper.GetSectionList();
             return View(sections);
         }
 
         public ActionResult CategoryList(int Id)
         {
-           
+
             var section = dbHelper.GetSectionById(Id);
             return View("CategoryList", section);
 
@@ -35,22 +35,22 @@ namespace MyGardenWildlife3.Controllers
 
         public ActionResult SpeciesList(int Id)
         {
-            
+
             var category = dbHelper.GetCategoryById(Id);
             return View("SpeciesList", category);
         }
 
         public ActionResult SightingList(int Id)
         {
-          
+
             var species = dbHelper.GetSpeciesById(Id);
-            return View("SightingList",species);
+            return View("SightingList", species);
         }
 
-        
+
         public ActionResult FigureList(int Id)
         {
-            
+
             var sighting = dbHelper.GetSightingById(Id);
             return View(sighting);
         }
@@ -58,35 +58,35 @@ namespace MyGardenWildlife3.Controllers
         //Edits
         public ActionResult SectionEdit(int Id)
         {
-            
+
             var sectionData = dbHelper.GetSectionById(Id);
             return View("sectionEdit", sectionData);
         }
 
         public ActionResult CategoryEdit(int Id)
         {
-            
+
             var CategoryData = dbHelper.GetCategoryById(Id);
             return View("categoryEdit", CategoryData);
         }
 
         public ActionResult SpeciesEdit(int Id)
         {
-            
+
             var SpeciesData = dbHelper.GetSpeciesById(Id);
             return View(SpeciesData);
         }
 
         public ActionResult SightingEdit(int Id)
         {
-            
+
             var SightingData = dbHelper.GetSightingById(Id);
             return View(SightingData);
         }
 
         public ActionResult FigureEdit(int Id)
         {
-            
+
             var FigureData = dbHelper.GetFigureById(Id);
             return View(FigureData);
         }
@@ -100,7 +100,7 @@ namespace MyGardenWildlife3.Controllers
 
         public ActionResult SectionAdd(string SectionName, string SectionIntro)
         {
-            
+
             dbHelper.AddSection(SectionName, SectionIntro);
             return RedirectToAction("SectionList");
         }
@@ -108,7 +108,7 @@ namespace MyGardenWildlife3.Controllers
         public ActionResult NewCategory(int Id)
         {
 
-            
+
             var sectionData = dbHelper.GetSectionById(Id);
 
             return View(sectionData);
@@ -116,22 +116,22 @@ namespace MyGardenWildlife3.Controllers
 
         public ActionResult CategoryAdd(string CategoryName, int SectionId)
         {
-           
+
             dbHelper.AddCategory(CategoryName, SectionId);
             return RedirectToAction("CategoryList", new { Id = SectionId });
         }
 
         public ActionResult NewSpecies(int Id)
         {
-            
+
             var categoryData = dbHelper.GetCategoryById(Id);
             return View(categoryData);
-            
+
         }
 
         public ActionResult SpeciesAdd(int CategoryId, string CommonName, string LatinName)
         {
-            
+
             dbHelper.AddSpecies(CategoryId, CommonName, LatinName);
             return RedirectToAction("SpeciesList", new { Id = CategoryId });
 
@@ -139,14 +139,14 @@ namespace MyGardenWildlife3.Controllers
 
         public ActionResult NewSighting(int Id)
         {
-            
+
             var SpeciesData = dbHelper.GetSpeciesById(Id);
             return View(SpeciesData);
         }
 
         public ActionResult SightingAdd(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
         {
-            
+
             dbHelper.AddSighting(SpeciesId, When, Where, HowMany, Comment);
             return RedirectToAction("SightingList", new { Id = SpeciesId });
         }
@@ -159,32 +159,30 @@ namespace MyGardenWildlife3.Controllers
 
         public ActionResult FigureAdd(int SightingId, string Source, string Alternative, string Caption)
         {
-            
+
             dbHelper.AddFigure(SightingId, Source, Alternative, Caption);
             return RedirectToAction("FigureList", new { Id = SightingId });
         }
 
         //Saves
-        public ActionResult SectionSave(int SectionId, string SectionName, string SectionIntro)
+        public void SectionSave(int SectionId, string SectionName, string SectionIntro)
         {
-            
 
             dbHelper.SetSection(SectionId, SectionName, SectionIntro);
 
-            return RedirectToAction("SectionList");
         }
-      
+
         public ActionResult CategorySave(int CategoryId, string CategoryName, int SectionId)
         {
-            
+
             dbHelper.SetCategory(CategoryId, CategoryName);
-            return RedirectToAction("CategoryList", new { Id = SectionId});
+            return RedirectToAction("CategoryList", new { Id = SectionId });
 
         }
 
         public ActionResult SpeciesSave(int SpeciesId, int CategoryId, string CommonName, string LatinName)
         {
-            
+
             dbHelper.SetSpecies(SpeciesId, CommonName, LatinName);
             return RedirectToAction("SpeciesList", new { id = CategoryId });
         }
@@ -204,7 +202,7 @@ namespace MyGardenWildlife3.Controllers
         //Deletes
         public ActionResult SectionDelete(int Id)
         {
-                        
+
             dbHelper.DeleteSection(Id);
             return RedirectToAction("SectionList");
         }

@@ -51,7 +51,7 @@ function adminIndexReady() {
 
 function adminSectionList() {
     $(".toSectionList").on("click", function () {
-                        
+
         $.get("/Admin/SectionList/", function (data) {
             $(".contentSection").html(data);
             adminSectionEdit();
@@ -64,12 +64,13 @@ function adminSectionList() {
 
 function adminSectionEdit() {
     $(".sectionEdit a").on("click", function () {
-       
+
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminSectionList();
             adminReloadToIndex();
+            adminSubmitSection();
 
         });
     });
@@ -78,7 +79,7 @@ function adminSectionEdit() {
 function adminCategoryList() {
 
     $(".toCategoryList a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/CategoryList/" + id, function (data) {
             $(".contentSection").html(data);
@@ -100,7 +101,7 @@ function adminReloadToIndex() {
 
 function adminCategoryEdit() {
     $(".toCategoryEdit a").on("click", function () {
-       
+
         var id = $(this).attr("id");
         $.get("/Admin/CategoryEdit/" + id, function (data) {
             $(".contentSection").html(data);
@@ -111,7 +112,7 @@ function adminCategoryEdit() {
 
 function adminSpeciesList() {
     $(".toSpeciesList a").on("click", function () {
-      
+
         var id = $(this).attr("id");
         $.get("/Admin/SpeciesList/" + id, function (data) {
             $(".contentSection").html(data);
@@ -124,7 +125,7 @@ function adminSpeciesList() {
 
 function adminSpeciesEdit() {
     $(".toSpeciesEdit a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/SpeciesEdit/" + id, function (data) {
             $(".contentSection").html(data);
@@ -135,7 +136,7 @@ function adminSpeciesEdit() {
 
 function adminSightingList() {
     $(".toSightingList a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/SightingList/" + id, function (data) {
             $(".contentSection").html(data);
@@ -148,7 +149,7 @@ function adminSightingList() {
 
 function adminSightingEdit() {
     $(".toSightingEdit a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/SightingEdit/" + id, function (data) {
             $(".contentSection").html(data);
@@ -159,7 +160,7 @@ function adminSightingEdit() {
 
 function adminFigureList() {
     $(".toFigureList a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/FigureList/" + id, function (data) {
             $(".contentSection").html(data);
@@ -171,11 +172,29 @@ function adminFigureList() {
 
 function adminFigureEdit() {
     $(".toFigureEdit a").on("click", function () {
-        
+
         var id = $(this).attr("id");
         $.get("/Admin/FigureEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
+        });
+    });
+}
+
+function adminSubmitSection() {
+    $(".submitSection").on("click", function () {
+        var data = {
+            SectionId: $("#sectionId").val(),
+            SectionName: $("#sectionName").val(),
+            SectionIntro: $("#sectionIntro").val()
+        };
+
+        $.post("/Admin/SectionSave/", data, function () {
+            $.get("/Admin/SectionList/", function (data) {
+                $(".contentSection").html(data);
+                adminSectionList();
+                adminReloadToIndex();
+            });
         });
     });
 }

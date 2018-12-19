@@ -2,21 +2,19 @@
 
 <h2>Edit Section: @Model.SectionName</h2>
 
-<form action="~/admin/SectionSave" method="post">
 
 
-    <input type="hidden" name="SectionId" value="@Model.Id" />
+    <input type="hidden" id="sectionId" name="SectionId" value="@Model.Id" />
 
     Section Name:
-    <input type="text" name="SectionName" value="@Model.SectionName" />
+    <input type="text" id="sectionName" name="SectionName" value="@Model.SectionName" />
     <br /><br />
     Section Intro:
-    <input type="text" name="SectionIntro" value="@Model.SectionIntro" />
+    <input type="text" id="sectionIntro" name="SectionIntro" value="@Model.SectionIntro" />
     <br /><br />
-    <input type="submit" value="Submit" />
+    <input type="button" class="submitSection" value="Submit" />
 
 
-</form>
 
 @*add link or button back to sectionList or adminIndex*@
 

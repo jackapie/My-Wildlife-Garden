@@ -44,37 +44,42 @@ function homePageReady() {
 
 function adminIndexReady() {
 
-    adminSectionList();
+    adminSectionList("Edit Section List");
 
 
 }
 
-function adminSectionList() {
-    $("#toSectionList").on("click", function () {
-        clickedOnTextToH1(this);
+function adminSectionList(heading) {
+    $(".toSectionList").on("click", function () {
+
+        $("h1").text(heading);
+
+        
         $.get("/Admin/SectionList/", function (data) {
             $(".contentSection").html(data);
-            adminSectionEdit();
-            adminCategoryList();
+            adminSectionEdit(heading);
+            adminCategoryList(heading);
             adminReloadToIndex();
 
         });
     });
 }
 
-function adminSectionEdit() {
+function adminSectionEdit(prevHeading) {
     $(".sectionEdit a").on("click", function () {
         clickedOnTextToH1(this);
         var id = $(this).attr("id");
         $.get("/Admin/SectionEdit/" + id, function (data) {
             $(".contentSection").html(data);
+            adminSectionList(prevHeading);
             adminReloadToIndex();
 
         });
     });
 }
 
-function adminCategoryList() {
+function adminCategoryList(prevHeading) {
+
     $(".toCategoryList a").on("click", function () {
         clickedOnTextToH1(this);
         var id = $(this).attr("id");
@@ -83,6 +88,7 @@ function adminCategoryList() {
 
             adminCategoryEdit();
             adminSpeciesList();
+            adminSectionList(prevHeading);
             adminReloadToIndex();
         });
     });

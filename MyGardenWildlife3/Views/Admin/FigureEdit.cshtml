@@ -2,20 +2,20 @@
 
 <h2>Edit Figure: @Model.Caption</h2>
 
-<form action="~/admin/FigureSave" method="post">
-    <input type="hidden" name="FigureId" value="@Model.Id" />
-    <input type="hidden" name="SightingId" value="@Model.SightingModel.Id" />
+
+    <input type="hidden" id="figureId" name="FigureId" value="@Model.Id" />
+    <input type="hidden" id="sightingId" name="SightingId" value="@Model.SightingModel.Id" />
     Source URL:
-    <input type="text" name="Source" value="@Model.Source" />
+    <input type="text" id="source" name="Source" value="@Model.Source" />
     <br /><br />
     Alternative message:
-    <input type="text" name="Alternative" value="@Model.Alternative" />
+    <input type="text" id="alternative" name="Alternative" value="@Model.Alternative" />
     <br /><br />
     Figure caption:
-    <input type="text" name="Caption" value="@Model.Caption" />
+    <input type="text" id="caption" name="Caption" value="@Model.Caption" />
     <br /><br />
-    <input type="Submit" value="submit" />
-</form>
+    <input type="button" class="submitFigure" value="Submit" />
+
 
 <br /><br />
 <button type="button" class="toAdminIndex">Back to Admin Home</button>

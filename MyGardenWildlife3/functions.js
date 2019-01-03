@@ -157,6 +157,7 @@ function adminSightingEdit() {
         $.get("/Admin/SightingEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
+            adminSubmitSighting();
         });
     });
 }
@@ -180,6 +181,7 @@ function adminFigureEdit() {
         $.get("/Admin/FigureEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
+            adminSubmitFigure();
         });
     });
 }
@@ -240,10 +242,66 @@ function adminSubmitSpecies() {
             $.post("/Admin/SpeciesSave/", data, function () {
                 $.get("/Admin/SpeciesList/" + id, function (data) {
                     $(".contentSection").html(data);
-                   
+
                     adminReloadToIndex();
                     adminSpeciesEdit();
                     adminSightingList();
+
+                });
+            });
+        });
+    }
+}
+
+function adminSubmitSighting() {
+    {
+        $(".submitSighting").on("click", function () {
+            var data = {
+                SightingId: $("#sightingId").val(),
+                SpeciesId: $("#speciesId").val(),
+                WhenSeen: $("#whenSeen").val(),
+                WhereSeen: $("#whereSeen").val(),
+                HowMany: $("#howMany").val(),
+                Comment: $("#comment").val()
+            };
+
+            var id = data.SpeciesId;
+
+            $.post("/Admin/SightingSave/", data, function () {
+                $.get("/Admin/SightingList/" + id, function (data) {
+                    $(".contentSection").html(data);
+
+                    adminReloadToIndex();
+                    adminSightingEdit();
+                    adminFigureList();
+
+                });
+            });
+        });
+    }
+}
+
+function adminSubmitFigure() {
+    {
+        $(".submitFigure").on("click", function () {
+            var data = {
+                FigureId: $("#figureId").val(),
+                SightingId: $("#sightingId").val(),
+                Source: $("#source").val(),
+                Alternative: $("#alternative").val(),
+                Caption: $("#caption").val()
+                
+            };
+
+            var id = data.SightingId;
+
+            $.post("/Admin/FigureSave/", data, function () {
+                $.get("/Admin/FigureList/" + id, function (data) {
+                    $(".contentSection").html(data);
+
+                    adminReloadToIndex();
+                    
+                    adminFigureEdit();
 
                 });
             });

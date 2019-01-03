@@ -184,19 +184,19 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.SetSpecies(SpeciesId, CommonName, LatinName);
-            //return RedirectToAction("SpeciesList", new { id = CategoryId });
+            
         }
 
-        public ActionResult SightingSave(int SightingId, int SpeciesId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)
+        public void SightingSave(int SightingId, int SpeciesId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)
         {
             dbHelper.SetSighting(SightingId, WhenSeen, WhereSeen, HowMany, Comment);
-            return RedirectToAction("SightingList", new { id = SpeciesId });
+           
         }
 
-        public ActionResult FigureSave(int FigureId, int SightingId, string Source, string Alternative, string Caption)
+        public void FigureSave(int FigureId, int SightingId, string Source, string Alternative, string Caption)
         {
             dbHelper.SetFigure(FigureId, Source, Alternative, Caption);
-            return RedirectToAction("FigureList", new { id = SightingId });
+            
         }
 
         //Deletes

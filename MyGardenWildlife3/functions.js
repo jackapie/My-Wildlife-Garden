@@ -120,6 +120,7 @@ function adminSpeciesList() {
             adminSpeciesEdit();
             adminSightingList();
             adminReloadToIndex();
+
         });
     });
 }
@@ -131,6 +132,7 @@ function adminSpeciesEdit() {
         $.get("/Admin/SpeciesEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
+            adminSubmitSpecies();
         });
     });
 }
@@ -214,11 +216,38 @@ function adminSubmitCategory() {
         $.post("/Admin/CategorySave/", data, function () {
             $.get("/Admin/CategoryList/" + id, function (data) {
                 $(".contentSection").html(data);
-                adminCategoryList();
+                adminCategoryEdit();
                 adminReloadToIndex();
                 adminSectionList();
+                adminSpeciesList();
             });
         });
     });
+}
+
+function adminSubmitSpecies() {
+    {
+        $(".submitSpecies").on("click", function () {
+            var data = {
+                SpeciesId: $("#speciesId").val(),
+                CategoryId: $("#categoryId").val(),
+                CommonName: $("#commonName").val(),
+                LatinName: $("#latinName").val()
+            };
+
+            var id = data.CategoryId;
+
+            $.post("/Admin/SpeciesSave/", data, function () {
+                $.get("/Admin/SpeciesList/" + id, function (data) {
+                    $(".contentSection").html(data);
+                   
+                    adminReloadToIndex();
+                    adminSpeciesEdit();
+                    adminSightingList();
+
+                });
+            });
+        });
+    }
 }
 

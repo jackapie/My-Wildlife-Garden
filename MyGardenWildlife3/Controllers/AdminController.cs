@@ -180,11 +180,11 @@ namespace MyGardenWildlife3.Controllers
 
         }
 
-        public ActionResult SpeciesSave(int SpeciesId, int CategoryId, string CommonName, string LatinName)
+        public void SpeciesSave(int SpeciesId, int CategoryId, string CommonName, string LatinName)
         {
 
             dbHelper.SetSpecies(SpeciesId, CommonName, LatinName);
-            return RedirectToAction("SpeciesList", new { id = CategoryId });
+            //return RedirectToAction("SpeciesList", new { id = CategoryId });
         }
 
         public ActionResult SightingSave(int SightingId, int SpeciesId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)

@@ -2,18 +2,18 @@
 
 <h2>Edit Species: @Model.CommonName <i>@Model.LatinName</i></h2>
 
-<form action="~/admin/SpeciesSave" method="post">
-    <input type="hidden" name="SpeciesId" value="@Model.Id" />
-    <input type="hidden" name="CategoryId" value="@Model.CategoryModel.Id" />
+
+    <input type="hidden" id="speciesId" name="SpeciesId" value="@Model.Id" />
+    <input type="hidden" id="categoryId" name="CategoryId" value="@Model.CategoryModel.Id" />
     Common Name:
-    <input type="text" name="CommonName" value="@Model.CommonName" />
+    <input type="text" id="commonName" name="CommonName" value="@Model.CommonName" />
     <br /><br />
     Latin Name:
-    <input type="text" name="LatinName" value="@Model.LatinName" />
+    <input type="text" id="latinName" name="LatinName" value="@Model.LatinName" />
     <br /><br />
-    <input type="submit" value="submit" />
+    <input type="button" class="submitSpecies" value="submit" />
 
-</form>
+
 
 <br /><br />
 <button type="button" class="toAdminIndex">Back to Admin Home</button>

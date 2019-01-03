@@ -29,7 +29,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             var section = dbHelper.GetSectionById(Id);
-            return View("CategoryList", section);
+            return View(section);
 
         }
 
@@ -37,14 +37,14 @@ namespace MyGardenWildlife3.Controllers
         {
 
             var category = dbHelper.GetCategoryById(Id);
-            return View("SpeciesList", category);
+            return View(category);
         }
 
         public ActionResult SightingList(int Id)
         {
 
             var species = dbHelper.GetSpeciesById(Id);
-            return View("SightingList", species);
+            return View(species);
         }
 
 
@@ -60,14 +60,14 @@ namespace MyGardenWildlife3.Controllers
         {
 
             var sectionData = dbHelper.GetSectionById(Id);
-            return View("sectionEdit", sectionData);
+            return View(sectionData);
         }
 
         public ActionResult CategoryEdit(int Id)
         {
 
             var CategoryData = dbHelper.GetCategoryById(Id);
-            return View("categoryEdit", CategoryData);
+            return View(CategoryData);
         }
 
         public ActionResult SpeciesEdit(int Id)

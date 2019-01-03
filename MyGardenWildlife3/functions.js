@@ -209,10 +209,10 @@ function adminSubmitCategory() {
             CategoryName: $("#categoryName").val()
         };
 
-        var id = data.CategoryId;
+        var id = data.SectionId;
 
         $.post("/Admin/CategorySave/", data, function () {
-            $("Admin/CategoryList/" + id, function (data) {
+            $.get("/Admin/CategoryList/" + id, function (data) {
                 $(".contentSection").html(data);
                 adminCategoryList();
                 adminReloadToIndex();

@@ -176,7 +176,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.SetCategory(CategoryId, CategoryName);
-            //return RedirectToAction("CategoryList", new { Id = SectionId });
+           
 
         }
 

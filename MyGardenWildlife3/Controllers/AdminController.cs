@@ -172,11 +172,11 @@ namespace MyGardenWildlife3.Controllers
 
         }
 
-        public ActionResult CategorySave(int CategoryId, string CategoryName, int SectionId)
+        public void CategorySave(int CategoryId, string CategoryName, int SectionId)
         {
 
             dbHelper.SetCategory(CategoryId, CategoryName);
-            return RedirectToAction("CategoryList", new { Id = SectionId });
+            //return RedirectToAction("CategoryList", new { Id = SectionId });
 
         }
 

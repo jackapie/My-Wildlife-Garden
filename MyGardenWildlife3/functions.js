@@ -106,6 +106,7 @@ function adminCategoryEdit() {
         $.get("/Admin/CategoryEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
+            adminSubmitCategory();
         });
     });
 }
@@ -192,11 +193,32 @@ function adminSubmitSection() {
         $.post("/Admin/SectionSave/", data, function () {
             $.get("/Admin/SectionList/", function (data) {
                 $(".contentSection").html(data);
-                adminSectionList();
+                adminSectionEdit();
+                adminCategoryList();
                 adminReloadToIndex();
             });
         });
     });
 }
 
+function adminSubmitCategory() {
+    $(".submitCategory").on("click", function () {
+        var data = {
+            CategoryId: $("#categoryId").val(),
+            SectionId: $("#sectionId").val(),
+            CategoryName: $("#categoryName").val()
+        };
+
+        var id = data.CategoryId;
+
+        $.post("/Admin/CategorySave/", data, function () {
+            $("Admin/CategoryList/" + id, function (data) {
+                $(".contentSection").html(data);
+                adminCategoryList();
+                adminReloadToIndex();
+                adminSectionList();
+            });
+        });
+    });
+}
 

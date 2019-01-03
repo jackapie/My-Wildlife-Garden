@@ -1,17 +1,17 @@
 ﻿@model MyGardenWildlife3.Models.CategoryModel
 
-<h2>Edit Cateory:  @Model.CategoryName</h2>
+<h2>Edit Category:  @Model.CategoryName</h2>
 
-<form action="~/admin/CategorySave" method="post">
 
-    <input type="hidden" name="CategoryId" value="@Model.Id" />
-    <input type="hidden" name="SectionId" value="@Model.SectionModel.Id" />
+
+<input type="hidden" id="categoryId" name="CategoryId" value="@Model.Id" />
+<input type="hidden" id="sectionId" name="SectionId" value="@Model.SectionModel.Id" />
     Category Name:
-    <input type="text" name="CategoryName" value="@Model.CategoryName" />
-    <br /><br />
-    <input type="submit" value="submit" />
+<input type="text" id="categoryName" name="CategoryName" value="@Model.CategoryName" />
+<br /><br />
+<input type="button" class="submitCategory" value="Submit" />
 
-</form>
+
 
 <br /><br />
 <button type="button" class="toAdminIndex">Back to Admin Home</button>

@@ -54,15 +54,18 @@ function adminIndexReady() {
 function adminSectionList() {
     $(".toSectionList").on("click", function () {
 
-        $.get("/Admin/SectionList/", function (data) {
-            $(".contentSection").html(data);
-            adminSectionEdit();
-            adminCategoryList();
-            adminDeleteSection();
-            adminAddNewSection();
-            adminReloadToIndex();
+        getSectionList();
+    });
+}
 
-        });
+function getSectionList() {
+    $.get("/Admin/SectionList/", function(data) {
+        $(".contentSection").html(data);
+        adminSectionEdit();
+        adminCategoryList();
+        adminDeleteSection();
+        adminAddNewSection();
+        adminReloadToIndex();
     });
 }
 
@@ -200,21 +203,11 @@ function adminSubmitSection() {
         };
         if (data.SectionId === "") {
             $.post("/Admin/SectionAdd/", data, function () {
-                $.get("/Admin/SectionList/", function (data) {
-                    $(".contentSection").html(data);
-                    adminSectionEdit();
-                    adminCategoryList();
-                    adminReloadToIndex();
-                });
+                getSectionList();
             });
         } else {
             $.post("/Admin/SectionSave/", data, function () {
-                $.get("/Admin/SectionList/", function (data) {
-                    $(".contentSection").html(data);
-                    adminSectionEdit();
-                    adminCategoryList();
-                    adminReloadToIndex();
-                });
+                getSectionList();
             });
         }
     });
@@ -330,14 +323,7 @@ function adminDeleteSection() {
 
         var id = $(this).attr("id");
         $.post("/Admin/SectionDelete/" + id, function (data) {
-            $.get("/Admin/SectionList/", function (data) {
-                $(".contentSection").html(data);
-                adminSectionEdit();
-                adminCategoryList();
-                adminDeleteSection();
-                adminReloadToIndex();
-
-            });
+            getSectionList();
            
         });
     });

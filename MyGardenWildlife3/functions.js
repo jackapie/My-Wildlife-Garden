@@ -88,14 +88,19 @@ function adminCategoryList() {
     $(".toCategoryList a").on("click", function () {
 
         var id = $(this).attr("id");
-        $.get("/Admin/CategoryList/" + id, function (data) {
-            $(".contentSection").html(data);
+        getCategoryList(id);
+    });
+}
 
-            adminCategoryEdit();
-            adminSpeciesList();
-            adminSectionList();
-            adminReloadToIndex();
-        });
+function getCategoryList(sectionId) {
+    $.get("/Admin/CategoryList/" + sectionId, function(data) {
+        $(".contentSection").html(data);
+        adminCategoryEdit(sectionId);
+        adminSpeciesList(sectionId);
+        adminDeleteCategory(sectionId);
+        adminAddNewCategory(sectionId);
+        adminSectionList();
+        adminReloadToIndex();
     });
 }
 
@@ -106,14 +111,14 @@ function adminReloadToIndex() {
     });
 }
 
-function adminCategoryEdit() {
+function adminCategoryEdit(sectionId) {
     $(".toCategoryEdit a").on("click", function () {
 
         var id = $(this).attr("id");
         $.get("/Admin/CategoryEdit/" + id, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
-            adminSubmitCategory();
+            adminSubmitCategory(sectionId);
         });
     });
 }
@@ -122,13 +127,19 @@ function adminSpeciesList() {
     $(".toSpeciesList a").on("click", function () {
 
         var id = $(this).attr("id");
-        $.get("/Admin/SpeciesList/" + id, function (data) {
-            $(".contentSection").html(data);
-            adminSpeciesEdit();
-            adminSightingList();
-            adminReloadToIndex();
+        getSpeciesList(id);
+    });
+}
 
-        });
+function getSpeciesList(categoryId) {
+    $.get("/Admin/SpeciesList/" + categoryId, function(data) {
+        $(".contentSection").html(data);
+        adminSpeciesEdit();
+        adminSightingList();
+        adminDeleteSpecies();
+        adminAddNewSpecies();
+        adminCategoryList();
+        adminReloadToIndex();
     });
 }
 
@@ -148,12 +159,19 @@ function adminSightingList() {
     $(".toSightingList a").on("click", function () {
 
         var id = $(this).attr("id");
-        $.get("/Admin/SightingList/" + id, function (data) {
-            $(".contentSection").html(data);
-            adminSightingEdit();
-            adminFigureList();
-            adminReloadToIndex();
-        });
+        getSightingList(id);
+    });
+}
+
+function getSightingList(speciesId) {
+    $.get("/Admin/SightingList/" + speciesId, function(data) {
+        $(".contentSection").html(data);
+        adminSightingEdit();
+        adminFigureList();
+        adminDeleteSighting();
+        adminAddNewSighting();
+        adminSpeciesList();
+        adminReloadToIndex();
     });
 }
 
@@ -173,11 +191,18 @@ function adminFigureList() {
     $(".toFigureList a").on("click", function () {
 
         var id = $(this).attr("id");
-        $.get("/Admin/FigureList/" + id, function (data) {
-            $(".contentSection").html(data);
-            adminFigureEdit();
-            adminReloadToIndex();
-        });
+        getFigureList(id);
+    });
+}
+
+function getFigureList(sightingId) {
+    $.get("/Admin/FigureList/" + sightingId, function(data) {
+        $(".contentSection").html(data);
+        adminFigureEdit();
+        adminDeleteFigure();
+        adminAddNewFigure();
+        adminSightingList();
+        adminReloadToIndex();
     });
 }
 
@@ -213,24 +238,18 @@ function adminSubmitSection() {
     });
 }
 
-function adminSubmitCategory() {
+function adminSubmitCategory(sectionId) {
     $(".submitCategory").on("click", function () {
         var data = {
             CategoryId: $("#categoryId").val(),
-            SectionId: $("#sectionId").val(),
+            
             CategoryName: $("#categoryName").val()
         };
 
-        var id = data.SectionId;
+        
 
         $.post("/Admin/CategorySave/", data, function () {
-            $.get("/Admin/CategoryList/" + id, function (data) {
-                $(".contentSection").html(data);
-                adminCategoryEdit();
-                adminReloadToIndex();
-                adminSectionList();
-                adminSpeciesList();
-            });
+            getCategoryList(sectionId);
         });
     });
 }
@@ -248,14 +267,7 @@ function adminSubmitSpecies() {
             var id = data.CategoryId;
 
             $.post("/Admin/SpeciesSave/", data, function () {
-                $.get("/Admin/SpeciesList/" + id, function (data) {
-                    $(".contentSection").html(data);
-
-                    adminReloadToIndex();
-                    adminSpeciesEdit();
-                    adminSightingList();
-
-                });
+                getSpeciesList(id);
             });
         });
     }
@@ -276,14 +288,7 @@ function adminSubmitSighting() {
             var id = data.SpeciesId;
 
             $.post("/Admin/SightingSave/", data, function () {
-                $.get("/Admin/SightingList/" + id, function (data) {
-                    $(".contentSection").html(data);
-
-                    adminReloadToIndex();
-                    adminSightingEdit();
-                    adminFigureList();
-
-                });
+                getSightingList(id);
             });
         });
     }
@@ -304,14 +309,7 @@ function adminSubmitFigure() {
             var id = data.SightingId;
 
             $.post("/Admin/FigureSave/", data, function () {
-                $.get("/Admin/FigureList/" + id, function (data) {
-                    $(".contentSection").html(data);
-
-                    adminReloadToIndex();
-                    
-                    adminFigureEdit();
-
-                });
+                getFigureList(id);
             });
         });
     }
@@ -329,6 +327,20 @@ function adminDeleteSection() {
     });
 }
 
+function adminDeleteCategory() {
+}
+
+function adminDeleteSpecies() {
+
+}
+
+function adminDeleteSighting() {
+
+}
+
+function adminDeleteFigure() {
+
+}
 //Add fns
 function adminAddNewSection() {
     $(".toAddNewSection").on("click", function () {
@@ -339,4 +351,28 @@ function adminAddNewSection() {
             adminSubmitSection();
         });
     });
+}
+
+function adminAddNewCategory() {
+    $(".toAddNewCategory").on("click", function () {
+        $.get("/Admin/NewCategory/", function (data) {
+            $(".contentSection").html(data);
+
+            adminReloadToIndex();
+            adminSubmitCategory();
+        });
+    });
+
+}
+
+function adminAddNewSpecies() {
+
+}
+
+function adminAddNewSighting() {
+
+}
+
+function adminAddNewFigure() {
+
 }

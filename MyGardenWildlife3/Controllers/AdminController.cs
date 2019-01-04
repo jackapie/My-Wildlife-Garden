@@ -172,7 +172,7 @@ namespace MyGardenWildlife3.Controllers
 
         }
 
-        public void CategorySave(int CategoryId, string CategoryName, int SectionId)
+        public void CategorySave(int CategoryId, string CategoryName)
         {
 
             dbHelper.SetCategory(CategoryId, CategoryName);

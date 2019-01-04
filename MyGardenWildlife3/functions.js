@@ -92,6 +92,12 @@ function adminCategoryList() {
     });
 }
 
+function adminBackToCatList(sectionId) {
+    $(".backToCatList").on("click", function () {
+        getCategoryList(sectionId);
+    });
+}
+
 function getCategoryList(sectionId) {
     $.get("/Admin/CategoryList/" + sectionId, function(data) {
         $(".contentSection").html(data);
@@ -119,6 +125,7 @@ function adminCategoryEdit(sectionId) {
             $(".contentSection").html(data);
             adminReloadToIndex();
             adminSubmitCategory(sectionId);
+            adminBackToCatList(sectionId);
         });
     });
 }

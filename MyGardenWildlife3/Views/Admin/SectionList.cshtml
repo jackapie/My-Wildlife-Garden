@@ -26,8 +26,8 @@
                     <a href=# id="@sectionObject.Id">Category List: @sectionObject.SectionName</a>
                 </td>
 
-                <td>
-                    <a href="~/admin/SectionDelete/@sectionObject.Id">Delete</a>
+                <td class="deleteSection">
+                    <a href=# id="@sectionObject.Id">Delete</a>
                 </td>
             </tr>
         }
@@ -35,7 +35,7 @@
 </table>
 
 <br /><br />
-<a href="~/admin/NewSection">Add new section</a>
+<button type="button" class="toAddNewSection">Add New Section</button>
 
 
 <br /><br />

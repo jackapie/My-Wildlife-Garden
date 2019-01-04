@@ -14,8 +14,9 @@ function toggleSomething(whatToToggle) {
 
 }
 
+//AJAX functions
+
 $(document).ready(function () {
-    //could make this into a function that gets run on page load and then again at end of each ajax operation
     homePageReady();
     adminIndexReady();
 });
@@ -49,6 +50,7 @@ function adminIndexReady() {
 
 }
 
+//adminList and adminEdit page functions
 function adminSectionList() {
     $(".toSectionList").on("click", function () {
 
@@ -56,6 +58,8 @@ function adminSectionList() {
             $(".contentSection").html(data);
             adminSectionEdit();
             adminCategoryList();
+            adminDeleteSection();
+            adminAddNewSection();
             adminReloadToIndex();
 
         });
@@ -186,6 +190,7 @@ function adminFigureEdit() {
     });
 }
 
+//submitFunctions for editPages
 function adminSubmitSection() {
     $(".submitSection").on("click", function () {
         var data = {
@@ -193,15 +198,25 @@ function adminSubmitSection() {
             SectionName: $("#sectionName").val(),
             SectionIntro: $("#sectionIntro").val()
         };
-
-        $.post("/Admin/SectionSave/", data, function () {
-            $.get("/Admin/SectionList/", function (data) {
-                $(".contentSection").html(data);
-                adminSectionEdit();
-                adminCategoryList();
-                adminReloadToIndex();
+        if (data.SectionId === "") {
+            $.post("/Admin/SectionAdd/", data, function () {
+                $.get("/Admin/SectionList/", function (data) {
+                    $(".contentSection").html(data);
+                    adminSectionEdit();
+                    adminCategoryList();
+                    adminReloadToIndex();
+                });
             });
-        });
+        } else {
+            $.post("/Admin/SectionSave/", data, function () {
+                $.get("/Admin/SectionList/", function (data) {
+                    $(".contentSection").html(data);
+                    adminSectionEdit();
+                    adminCategoryList();
+                    adminReloadToIndex();
+                });
+            });
+        }
     });
 }
 
@@ -309,3 +324,33 @@ function adminSubmitFigure() {
     }
 }
 
+//deleteFns for listPages
+function adminDeleteSection() {
+    $(".deleteSection a").on("click", function () {
+
+        var id = $(this).attr("id");
+        $.post("/Admin/SectionDelete/" + id, function (data) {
+            $.get("/Admin/SectionList/", function (data) {
+                $(".contentSection").html(data);
+                adminSectionEdit();
+                adminCategoryList();
+                adminDeleteSection();
+                adminReloadToIndex();
+
+            });
+           
+        });
+    });
+}
+
+//Add fns
+function adminAddNewSection() {
+    $(".toAddNewSection").on("click", function () {
+        $.get("/Admin/NewSection/", function (data) {
+            $(".contentSection").html(data);
+            adminSectionList();
+            adminReloadToIndex();
+            adminSubmitSection();
+        });
+    });
+}

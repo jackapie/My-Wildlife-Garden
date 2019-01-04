@@ -98,11 +98,11 @@ namespace MyGardenWildlife3.Controllers
         }
 
 
-        public ActionResult SectionAdd(string SectionName, string SectionIntro)
+        public void SectionAdd(string SectionName, string SectionIntro)
         {
 
             dbHelper.AddSection(SectionName, SectionIntro);
-            return RedirectToAction("SectionList");
+            //return RedirectToAction("SectionList");
         }
 
         public ActionResult NewCategory(int Id)
@@ -200,11 +200,11 @@ namespace MyGardenWildlife3.Controllers
         }
 
         //Deletes
-        public ActionResult SectionDelete(int Id)
+        public void SectionDelete(int Id)
         {
 
             dbHelper.DeleteSection(Id);
-            return RedirectToAction("SectionList");
+            //return RedirectToAction("SectionList");
         }
 
         public ActionResult CategoryDelete(int Id)

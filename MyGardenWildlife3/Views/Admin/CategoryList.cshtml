@@ -14,18 +14,18 @@
     <tbody>
         @foreach (var categoryObject in Model.CategoryList)
         {
-            <tr>
-                <td>@categoryObject.CategoryName</td>
-                <td class="toCategoryEdit">
-                    <a href=# id="@categoryObject.Id">Edit @categoryObject.CategoryName</a>
-                </td>
-                <td class="toSpeciesList">
-                    <a href=# id="@categoryObject.Id">SpeciesList: @categoryObject.CategoryName</a>
-                </td>
-                <td>
-                    <a href="~/admin/CategoryDelete/@categoryObject.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@categoryObject.CategoryName</td>
+            <td class="toCategoryEdit">
+                <a href=# id="@categoryObject.Id">Edit @categoryObject.CategoryName</a>
+            </td>
+            <td class="toSpeciesList">
+                <a href=# id="@categoryObject.Id">SpeciesList: @categoryObject.CategoryName</a>
+            </td>
+            <td class="deleteCategory">
+                <a href=# id="@categoryObject.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 

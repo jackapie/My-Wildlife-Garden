@@ -102,7 +102,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.AddSection(SectionName, SectionIntro);
-            //return RedirectToAction("SectionList");
+            
         }
 
         public ActionResult NewCategory(int Id)
@@ -114,11 +114,11 @@ namespace MyGardenWildlife3.Controllers
             return View(sectionData);
         }
 
-        public ActionResult CategoryAdd(string CategoryName, int SectionId)
+        public void CategoryAdd(string CategoryName, int SectionId)
         {
 
             dbHelper.AddCategory(CategoryName, SectionId);
-            return RedirectToAction("CategoryList", new { Id = SectionId });
+            //return RedirectToAction("CategoryList", new { Id = SectionId });
         }
 
         public ActionResult NewSpecies(int Id)
@@ -207,12 +207,12 @@ namespace MyGardenWildlife3.Controllers
             //return RedirectToAction("SectionList");
         }
 
-        public ActionResult CategoryDelete(int Id)
+        public void CategoryDelete(int Id)
         {
             var category = dbHelper.GetCategoryById(Id);
             var SectionId = category.SectionModel.Id;
             dbHelper.DeleteCategory(Id);
-            return RedirectToAction("CategoryList", new { id = SectionId });
+            //return RedirectToAction("CategoryList", new { id = SectionId });
         }
 
         public ActionResult SpeciesDelete(int Id)

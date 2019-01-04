@@ -1,0 +1,16 @@
+﻿@model MyGardenWildlife3.Models.SectionModel
+
+<h2>Add New Category</h2>
+
+<input type="hidden" id="sectionId" name="SectionId" value="@Model.Id" />
+<input type="hidden" id="categoryId" name="CategoryId" value="" />
+    Category Name:
+<input type="text" id="categoryName" name="CategoryName" value="" />
+<br /><br />
+<input type="button" class="submitCategory" value="Submit" />
+
+<br /><br />
+<button type="button" class="toAdminIndex">Back to Admin Home</button>
+<button type="button" class="backToCatList">Back to Category List</button>
+
+

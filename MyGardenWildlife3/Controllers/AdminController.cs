@@ -129,11 +129,11 @@ namespace MyGardenWildlife3.Controllers
 
         }
 
-        public ActionResult SpeciesAdd(int CategoryId, string CommonName, string LatinName)
+        public void SpeciesAdd(int CategoryId, string CommonName, string LatinName)
         {
 
             dbHelper.AddSpecies(CategoryId, CommonName, LatinName);
-            return RedirectToAction("SpeciesList", new { Id = CategoryId });
+            //return RedirectToAction("SpeciesList", new { Id = CategoryId });
 
         }
 
@@ -144,11 +144,11 @@ namespace MyGardenWildlife3.Controllers
             return View(SpeciesData);
         }
 
-        public ActionResult SightingAdd(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
+        public void SightingAdd(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
         {
 
             dbHelper.AddSighting(SpeciesId, When, Where, HowMany, Comment);
-            return RedirectToAction("SightingList", new { Id = SpeciesId });
+            //return RedirectToAction("SightingList", new { Id = SpeciesId });
         }
 
         public ActionResult NewFigure(int Id)
@@ -157,11 +157,11 @@ namespace MyGardenWildlife3.Controllers
             return View(sighting);
         }
 
-        public ActionResult FigureAdd(int SightingId, string Source, string Alternative, string Caption)
+        public void FigureAdd(int SightingId, string Source, string Alternative, string Caption)
         {
 
             dbHelper.AddFigure(SightingId, Source, Alternative, Caption);
-            return RedirectToAction("FigureList", new { Id = SightingId });
+            //return RedirectToAction("FigureList", new { Id = SightingId });
         }
 
         //Saves
@@ -215,29 +215,29 @@ namespace MyGardenWildlife3.Controllers
             //return RedirectToAction("CategoryList", new { id = SectionId });
         }
 
-        public ActionResult SpeciesDelete(int Id)
+        public void SpeciesDelete(int Id)
         {
             var species = dbHelper.GetSpeciesById(Id);
             var CategoryId = species.CategoryModel.Id;
             dbHelper.DeleteSpecies(Id);
-            return RedirectToAction("SpeciesList", new { id = CategoryId });
+            //return RedirectToAction("SpeciesList", new { id = CategoryId });
         }
 
-        public ActionResult SightingDelete(int Id)
+        public void SightingDelete(int Id)
         {
             var sighting = dbHelper.GetSightingById(Id);
             var SpeciesId = sighting.SpeciesModel.Id;
             dbHelper.DeleteSighting(Id);
-            return RedirectToAction("SightingList", new { id = SpeciesId });
+            //return RedirectToAction("SightingList", new { id = SpeciesId });
         }
 
 
-        public ActionResult FigureDelete(int Id)
+        public void FigureDelete(int Id)
         {
             var figure = dbHelper.GetFigureById(Id);
             var SightingId = figure.SightingModel.Id;
             dbHelper.DeleteFigure(Id);
-            return RedirectToAction("FigureList", new { id = SightingId });
+            //return RedirectToAction("FigureList", new { id = SightingId });
         }
     }
 }

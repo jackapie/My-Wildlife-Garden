@@ -25,8 +25,8 @@
                 <td class="toSightingList">
                     <a href=# id="@speciesObject.Id">Sighting List @speciesObject.CommonName <i>@speciesObject.LatinName</i></a>
                 </td>
-                <td>
-                    <a href="~/admin/SpeciesDelete/@speciesObject.Id">Delete</a>
+                <td class="deleteSpecies">
+                    <a href=# id="@speciesObject.Id">Delete</a>
                 </td>
             </tr>
 
@@ -37,9 +37,8 @@
 </table>
 <br />
 
-<a href="~/admin/NewSpecies/@Model.Id">Add a new species</a>
+<button type="button" class="toAddNewSpecies" id="@Model.Id">Add New Species</button>
 
 <br /><br />
-<button type="button" class="toAdminIndex">Back to Admin Home</button>
 <button type="button" class="backToCatList">Back to Category List</button>
-
+<button type="button" class="toAdminIndex">Back to Admin Home</button>

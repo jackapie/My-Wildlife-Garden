@@ -214,6 +214,7 @@
     <Content Include="Views\Admin\FigureEdit.cshtml" />
     <Content Include="Views\Admin\NewSection.cshtml" />
     <Content Include="Views\Admin\NewCategory.cshtml" />
+    <Content Include="Views\Admin\NewSpecies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

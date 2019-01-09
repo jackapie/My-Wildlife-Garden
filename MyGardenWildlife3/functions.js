@@ -50,6 +50,12 @@ function adminIndexReady() {
 
 }
 
+function adminReloadToIndex() {
+    $(".toAdminIndex").on("click", function () {
+        location.reload();
+        adminIndexReady();
+    });
+}
 //adminList and adminEdit page functions
 function adminSectionList() {
     $(".toSectionList").on("click", function () {
@@ -87,8 +93,8 @@ function adminCategoryList() {
 
     $(".toCategoryList a").on("click", function () {
 
-        var id = $(this).attr("id");
-        getCategoryList(id);
+        var sectionId = $(this).attr("id");
+        getCategoryList(sectionId);
     });
 }
 
@@ -110,12 +116,6 @@ function getCategoryList(sectionId) {
     });
 }
 
-function adminReloadToIndex() {
-    $(".toAdminIndex").on("click", function () {
-        location.reload();
-        adminIndexReady();
-    });
-}
 
 function adminCategoryEdit(sectionId) {
     $(".toCategoryEdit a").on("click", function () {
@@ -133,33 +133,40 @@ function adminCategoryEdit(sectionId) {
 function adminSpeciesList(sectionId) {
     $(".toSpeciesList a").on("click", function () {
 
-        var id = $(this).attr("id");
-        getSpeciesList(id, sectionId);
+        var categoryId = $(this).attr("id");
+        getSpeciesList(categoryId, sectionId);
     });
 }
 
 function getSpeciesList(categoryId, sectionId) {
     $.get("/Admin/SpeciesList/" + categoryId, function (data) {
         $(".contentSection").html(data);
-        adminSpeciesEdit();
+        adminSpeciesEdit(categoryId, sectionId);
         adminSightingList();
-        adminDeleteSpecies();
-        adminAddNewSpecies();
+        adminDeleteSpecies(categoryId, sectionId);
+        adminAddNewSpecies(categoryId, sectionId);
         adminCategoryList();
         adminBackToCatList(sectionId);
         adminReloadToIndex();
     });
 }
 
-function adminSpeciesEdit() {
+function adminSpeciesEdit(categoryId, sectionId) {
     $(".toSpeciesEdit a").on("click", function () {
 
-        var id = $(this).attr("id");
-        $.get("/Admin/SpeciesEdit/" + id, function (data) {
+        //var id = $(this).attr("id");
+        $.get("/Admin/SpeciesEdit/" + categoryId, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
-            adminSubmitSpecies();
+            adminSubmitSpecies(categoryId, sectionId);
+            adminBackToSpecList(categoryId, sectionId);
         });
+    });
+}
+
+function adminBackToSpecList(categoryId, sectionId) {
+    $(".backToSpecList").on("click", function () {
+        getSpeciesList(categoryId, sectionId);
     });
 }
 
@@ -264,12 +271,10 @@ function adminSubmitCategory(sectionId) {
 
         }
 
-
-
     });
 }
 
-function adminSubmitSpecies() {
+function adminSubmitSpecies(categoryId, sectionId) {
     {
         $(".submitSpecies").on("click", function () {
             var data = {
@@ -278,12 +283,16 @@ function adminSubmitSpecies() {
                 CommonName: $("#commonName").val(),
                 LatinName: $("#latinName").val()
             };
-
-            var id = data.CategoryId;
-
-            $.post("/Admin/SpeciesSave/", data, function () {
-                getSpeciesList(id);
-            });
+            if (data.SpeciesId === "") {
+                $.post("/Admin/SpeciesAdd/", data, function () {
+                    getSpeciesList(categoryId, sectionId);
+                });
+            } else {
+                $.post("/Admin/SpeciesSave/", data, function () {
+                    getSpeciesList(categoryId, sectionId);
+                });
+            }
+            
         });
     }
 }
@@ -351,8 +360,13 @@ function adminDeleteCategory(sectionId) {
     });
 }
 
-function adminDeleteSpecies() {
-
+function adminDeleteSpecies(categoryId, sectionId) {
+    $(".deleteSpecies a").on("click", function () {
+        var id = $(this).attr("id");
+        $.post("/Admin/SpeciesDelete/" + id, function () {
+            getSpeciesList(categoryId, sectionId);
+        });
+    });
 }
 
 function adminDeleteSighting() {
@@ -386,8 +400,16 @@ function adminAddNewCategory(sectionId) {
 
 }
 
-function adminAddNewSpecies() {
+function adminAddNewSpecies(categoryId, sectionId) {
+    $(".toAddNewSpecies").on("click", function () {
+        $.get("/Admin/NewSpecies/" + categoryId, function (data) {
+            $(".contentSection").html(data);
 
+            adminReloadToIndex();
+            adminSubmitSpecies(categoryId, sectionId);
+            adminBackToSpecList(categoryId, sectionId);
+        });
+    });
 }
 
 function adminAddNewSighting() {

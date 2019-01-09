@@ -1,0 +1,21 @@
+﻿@model MyGardenWildlife3.Models.CategoryModel
+
+<h2>Add New Species</h2>
+
+<input type="hidden" id="categoryId" name="CategoryId" value="@Model.Id" />
+<input type="hidden" id="speciesId" name="SpeciesId" value="" />
+
+ Common Name:
+<input type="text" id="commonName" name="CommonName" value="" />
+<br /><br />
+    Latin Name:
+<input type="text" id="latinName" name="LatinName" value="" />
+<br /><br />
+<input type="button" class="submitSpecies" value="Submit" />
+
+
+
+<br /><br />
+<button type="button" class="toAdminIndex">Back to Admin Home</button>
+<button type="button" class="backToSpecList">Back to Species List</button>
+

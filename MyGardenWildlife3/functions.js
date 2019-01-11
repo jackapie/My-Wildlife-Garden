@@ -24,7 +24,7 @@ $(document).ready(function () {
 function homePageReady() {
     $('.photoSection p, .speciesList div').hide();
     $(".headerLinks a").on("click", function () {
-        clickedOnTextToH1(this);
+        //clickedOnTextToH1(this);
         var id = $(this).attr("id");
         if (id === "homeHeader") {
             $.get("/Home/HomePage/", function (data) {

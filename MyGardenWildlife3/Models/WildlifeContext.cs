@@ -8,7 +8,7 @@ namespace MyGardenWildlife3.Models
 {
     public class WildlifeContext :DbContext
     {
-        const string ConnectionString = @"Server=localhost\sqlexpress;Database=Wildlife;Integrated Security=True;MultipleActiveResultSets=true";
+        const string ConnectionString = @"WildlifeConnection";
 
         public WildlifeContext() : base(ConnectionString)
         {

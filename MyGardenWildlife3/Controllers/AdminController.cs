@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MyGardenWildlife3.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         DatabaseHelper dbHelper = new DatabaseHelper();

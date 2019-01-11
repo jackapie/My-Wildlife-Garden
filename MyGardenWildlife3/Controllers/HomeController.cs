@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MyGardenWildlife3.Controllers
 {
@@ -34,8 +36,30 @@ namespace MyGardenWildlife3.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Login(string UserName, string Password, string ReturnUrl)
+        {
+            var securityHelper = new SecurityHelper();
+            
+            if (securityHelper.LoginUser(UserName, Password))
+            {
+                FormsAuthentication.SetAuthCookie(UserName, false);
+                return Redirect(ReturnUrl);
 
+            }
+            return View();
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/");
+        }
 
     }
 }

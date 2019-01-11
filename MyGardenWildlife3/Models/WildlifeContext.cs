@@ -24,5 +24,7 @@ namespace MyGardenWildlife3.Models
         public DbSet<SightingModel> Sighting { get; set; }
 
         public DbSet<FigureModel> Figure { get; set; }
+
+        public DbSet<UserModel> UserModel { get; set; }
     }
 }

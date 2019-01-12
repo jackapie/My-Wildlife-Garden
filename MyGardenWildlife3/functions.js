@@ -142,10 +142,9 @@ function getSpeciesList(categoryId, sectionId) {
     $.get("/Admin/SpeciesList/" + categoryId, function (data) {
         $(".contentSection").html(data);
         adminSpeciesEdit(categoryId, sectionId);
-        adminSightingList();
+        adminSightingList(categoryId, sectionId);
         adminDeleteSpecies(categoryId, sectionId);
         adminAddNewSpecies(categoryId, sectionId);
-        adminCategoryList();
         adminBackToCatList(sectionId);
         adminReloadToIndex();
     });
@@ -170,66 +169,80 @@ function adminBackToSpecList(categoryId, sectionId) {
     });
 }
 
-function adminSightingList() {
+function adminSightingList(categoryId, sectionId) {
     $(".toSightingList a").on("click", function () {
 
-        var id = $(this).attr("id");
-        getSightingList(id);
+        var speciesId = $(this).attr("id");
+        getSightingList(speciesId, categoryId, sectionId);
     });
 }
 
-function getSightingList(speciesId) {
+function getSightingList(speciesId, categoryId, sectionId) {
     $.get("/Admin/SightingList/" + speciesId, function (data) {
         $(".contentSection").html(data);
-        adminSightingEdit();
-        adminFigureList();
-        adminDeleteSighting();
-        adminAddNewSighting();
-        adminSpeciesList();
+        adminSightingEdit(speciesId, categoryId, sectionId);
+        adminFigureList(speciesId, categoryId, sectionId);
+        adminDeleteSighting(speciesId, categoryId, sectionId);
+        adminAddNewSighting(speciesId, categoryId, sectionId);
+        adminBackToSpecList(categoryId, sectionId);
         adminReloadToIndex();
     });
 }
 
-function adminSightingEdit() {
+function adminSightingEdit(speciesId, categoryId, sectionId) {
     $(".toSightingEdit a").on("click", function () {
 
-        var id = $(this).attr("id");
-        $.get("/Admin/SightingEdit/" + id, function (data) {
+        var sightingId = $(this).attr("id");
+        $.get("/Admin/SightingEdit/" + sightingId, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
-            adminSubmitSighting();
+            adminSubmitSighting(speciesId, categoryId, sectionId);
+            adminBackToSighList(speciesId, categoryId, sectionId);
         });
     });
 }
 
-function adminFigureList() {
-    $(".toFigureList a").on("click", function () {
-
-        var id = $(this).attr("id");
-        getFigureList(id);
+function adminBackToSighList(speciesId, categoryId, sectionId) {
+    $(".backToSighList").on("click", function () {
+        getSightingList(speciesId, categoryId, sectionId);
     });
 }
 
-function getFigureList(sightingId) {
+function adminFigureList(speciesId, categoryId, sectionId) {
+    $(".toFigureList a").on("click", function () {
+
+        var sightingId = $(this).attr("id");
+        getFigureList(sightingId, speciesId, categoryId, sectionId);
+    });
+}
+
+function getFigureList(sightingId, speciesId, categoryId, sectionId) {
     $.get("/Admin/FigureList/" + sightingId, function (data) {
         $(".contentSection").html(data);
-        adminFigureEdit();
-        adminDeleteFigure();
-        adminAddNewFigure();
-        adminSightingList();
+        adminFigureEdit(sightingId, speciesId, categoryId, sectionId);
+        adminDeleteFigure(sightingId, speciesId, categoryId, sectionId);
+        adminAddNewFigure(sightingId, speciesId, categoryId, sectionId);
+        adminBackToSighList(speciesId, categoryId, sectionId);
         adminReloadToIndex();
     });
 }
 
-function adminFigureEdit() {
+function adminFigureEdit(sightingId, speciesId, categoryId, sectionId) {
     $(".toFigureEdit a").on("click", function () {
 
-        var id = $(this).attr("id");
-        $.get("/Admin/FigureEdit/" + id, function (data) {
+        var figureId = $(this).attr("id");
+        $.get("/Admin/FigureEdit/" + figureId, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();
-            adminSubmitFigure();
+            adminSubmitFigure(sightingId, speciesId, categoryId, sectionId);
+            adminBackToFigList(sightingId, speciesId, categoryId, sectionId);
         });
+    });
+}
+
+function adminBackToFigList(sightingId, speciesId, categoryId, sectionId) {
+    $(".backToFigList").on("click", function () {
+        getFigureList(sightingId, speciesId, categoryId, sectionId);
     });
 }
 
@@ -292,12 +305,12 @@ function adminSubmitSpecies(categoryId, sectionId) {
                     getSpeciesList(categoryId, sectionId);
                 });
             }
-            
+
         });
     }
 }
 
-function adminSubmitSighting() {
+function adminSubmitSighting(speciesId, categoryId, sectionId) {
     {
         $(".submitSighting").on("click", function () {
             var data = {
@@ -309,16 +322,21 @@ function adminSubmitSighting() {
                 Comment: $("#comment").val()
             };
 
-            var id = data.SpeciesId;
-
-            $.post("/Admin/SightingSave/", data, function () {
-                getSightingList(id);
-            });
+            if (data.SightingId === "") {
+                $.post("/Admin/SightingAdd/", data, function () {
+                    getSightingList(speciesId, categoryId, sectionId);
+                });
+            } else {
+                $.post("/Admin/SightingSave/", data, function () {
+                    getSightingList(speciesId, categoryId, sectionId);
+                });
+            }
+            
         });
     }
 }
 
-function adminSubmitFigure() {
+function adminSubmitFigure(sightingId, speciesId, categoryId, sectionId) {
     {
         $(".submitFigure").on("click", function () {
             var data = {
@@ -330,11 +348,15 @@ function adminSubmitFigure() {
 
             };
 
-            var id = data.SightingId;
-
-            $.post("/Admin/FigureSave/", data, function () {
-                getFigureList(id);
-            });
+            if (data.FigureId === "") {
+                $.post("/Admin/FigureAdd/", data, function () {
+                    getFigureList(sightingId, speciesId, categoryId, sectionId);
+                });
+            } else {
+                $.post("/Admin/FigureSave/", data, function () {
+                    getFigureList(sightingId, speciesId, categoryId, sectionId);
+                });
+            }
         });
     }
 }
@@ -369,12 +391,22 @@ function adminDeleteSpecies(categoryId, sectionId) {
     });
 }
 
-function adminDeleteSighting() {
-
+function adminDeleteSighting(speciesId, categoryId, sectionId) {
+    $(".deleteSighting a").on("click", function () {
+        var id = $(this).attr("id");
+        $.post("/Admin/SightingDelete/" + id, function () {
+            getSightingList(speciesId, categoryId, sectionId);
+        });
+    });
 }
 
-function adminDeleteFigure() {
-
+function adminDeleteFigure(sightingId, speciesId, categoryId, sectionId) {
+    $(".deleteFigure a").on("click", function () {
+        var id = $(this).attr("id");
+        $.post("/Admin/FigureDelete/" + id, function () {
+            getFigureList(sightingId, speciesId, categoryId, sectionId);
+        });
+    });
 }
 //Add fns
 function adminAddNewSection() {
@@ -412,10 +444,26 @@ function adminAddNewSpecies(categoryId, sectionId) {
     });
 }
 
-function adminAddNewSighting() {
+function adminAddNewSighting(speciesId, categoryId, sectionId) {
+    $(".toAddNewSighting").on("click", function () {
+        $.get("/Admin/NewSighting/" + speciesId, function (data) {
+            $(".contentSection").html(data);
 
+            adminReloadToIndex();
+            adminSubmitSighting(speciesId, categoryId, sectionId);
+            adminBackToSighList(speciesId, categoryId, sectionId);
+        });
+    });
 }
 
-function adminAddNewFigure() {
+function adminAddNewFigure(sightingId, speciesId, categoryId, sectionId) {
+    $(".toAddNewFigure").on("click", function () {
+        $.get("/Admin/NewFigure/" + sightingId, function (data) {
+            $(".contentSection").html(data);
 
+            adminReloadToIndex();
+            adminSubmitFigure(sightingId, speciesId, categoryId, sectionId);
+            adminBackToFigList(sightingId, speciesId, categoryId, sectionId);
+        });
+    });
 }

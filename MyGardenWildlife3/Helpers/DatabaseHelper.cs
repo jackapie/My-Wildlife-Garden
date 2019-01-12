@@ -163,14 +163,14 @@ namespace MyGardenWildlife3.Helpers
             context.SaveChanges();
         }
 
-        public void AddSighting(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
+        public void AddSighting(int SpeciesId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)
         {
             var context = new WildlifeContext();
             var species = context.Species.Where((e) => e.Id == SpeciesId).First();
             var sighting = new SightingModel();
             species.SightingList.Add(sighting);
-            sighting.WhenSeen = When;
-            sighting.WhereSeen = Where;
+            sighting.WhenSeen = WhenSeen;
+            sighting.WhereSeen = WhereSeen;
             sighting.HowMany = HowMany;
             sighting.Comment = Comment;
             context.SaveChanges();

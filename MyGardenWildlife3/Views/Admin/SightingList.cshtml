@@ -34,8 +34,8 @@
                 <td class="toFigureList">
                     <a href=# id="@sightingObject.Id">Figure List <i>@Model.LatinName</i> @sightingObject.WhenSeen.Value.ToShortDateString()</a>
                 </td>
-                <td>
-                    <a href="~/admin/SightingDelete/@sightingObject.Id">Delete</a>
+                <td class="deleteSighting">
+                    <a href=# id="@sightingObject.Id">Delete</a>
                 </td>
 
             </tr>
@@ -45,8 +45,8 @@
 </table>
 <br />
 
-<a href="~/admin/NewSighting/@Model.Id">Add a new sighting</a>
+<button type="button" class="toAddNewSighting" id="@Model.Id">Add New Sighting</button>
 
 <br /><br />
 <button type="button" class="toAdminIndex">Back to Admin Home</button>
-
+<button type="button" class="backToSpecList">Back to Species List</button>

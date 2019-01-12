@@ -23,7 +23,9 @@
                 <td class="toFigureEdit">
                     <a href=# id="@figureObject.Id">Edit Figure: @figureObject.Caption</a>
                 </td>
-                <td><a href="~/admin/FigureDelete/@figureObject.Id">Delete</a></td>
+                <td class="deleteFigure">
+                    <a href=# id="@figureObject.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
@@ -31,10 +33,10 @@
 </table>
 <br />
 
-<a href="~/admin/NewFigure/@Model.Id">Add a new figure</a>
+<button type="button" class="toAddNewFigure" id="@Model.Id">Add New Figure</button>
 
 <br /><br />
 <button type="button" class="toAdminIndex">Back to Admin Home</button>
-
+<button type="button" class="backToSighList">Back to Sighting List</button>
 
 

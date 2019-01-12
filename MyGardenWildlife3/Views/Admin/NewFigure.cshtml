@@ -1,0 +1,24 @@
+﻿@model MyGardenWildlife3.Models.SightingModel
+
+<h2>Add New Figure</h2>
+
+<input type="hidden" id="sightingId" name="SightingId" value="@Model.Id" />
+<input type="hidden" id="figureId" name="FigureId" value="" />
+
+Source URL:
+<input type="text" id="source" name="Source" value="" />
+<br /><br />
+    Alternative message:
+<input type="text" id="alternative" name="Alternative" value="" />
+<br /><br />
+    Figure Caption:
+<input type="text" id="caption" name="Caption" value="" />
+<br /><br />
+
+<input type="button" class="submitFigure" value="Submit" />
+
+
+
+<br /><br />
+<button type="button" class="toAdminIndex">Back to Admin Home</button>
+<button type="button" class="backToFigList">Back to Figure List</button>

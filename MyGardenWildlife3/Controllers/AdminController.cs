@@ -119,7 +119,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.AddCategory(CategoryName, SectionId);
-            //return RedirectToAction("CategoryList", new { Id = SectionId });
+            
         }
 
         public ActionResult NewSpecies(int Id)
@@ -134,7 +134,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.AddSpecies(CategoryId, CommonName, LatinName);
-            //return RedirectToAction("SpeciesList", new { Id = CategoryId });
+            
 
         }
 
@@ -145,11 +145,11 @@ namespace MyGardenWildlife3.Controllers
             return View(SpeciesData);
         }
 
-        public void SightingAdd(int SpeciesId, DateTime When, string Where, int HowMany, string Comment)
+        public void SightingAdd(int SpeciesId, DateTime WhenSeen, string WhereSeen, int HowMany, string Comment)
         {
 
-            dbHelper.AddSighting(SpeciesId, When, Where, HowMany, Comment);
-            //return RedirectToAction("SightingList", new { Id = SpeciesId });
+            dbHelper.AddSighting(SpeciesId, WhenSeen, WhereSeen, HowMany, Comment);
+            
         }
 
         public ActionResult NewFigure(int Id)
@@ -162,7 +162,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.AddFigure(SightingId, Source, Alternative, Caption);
-            //return RedirectToAction("FigureList", new { Id = SightingId });
+           
         }
 
         //Saves
@@ -205,7 +205,7 @@ namespace MyGardenWildlife3.Controllers
         {
 
             dbHelper.DeleteSection(Id);
-            //return RedirectToAction("SectionList");
+            
         }
 
         public void CategoryDelete(int Id)
@@ -213,7 +213,7 @@ namespace MyGardenWildlife3.Controllers
             var category = dbHelper.GetCategoryById(Id);
             var SectionId = category.SectionModel.Id;
             dbHelper.DeleteCategory(Id);
-            //return RedirectToAction("CategoryList", new { id = SectionId });
+           
         }
 
         public void SpeciesDelete(int Id)
@@ -221,7 +221,7 @@ namespace MyGardenWildlife3.Controllers
             var species = dbHelper.GetSpeciesById(Id);
             var CategoryId = species.CategoryModel.Id;
             dbHelper.DeleteSpecies(Id);
-            //return RedirectToAction("SpeciesList", new { id = CategoryId });
+           
         }
 
         public void SightingDelete(int Id)
@@ -229,7 +229,7 @@ namespace MyGardenWildlife3.Controllers
             var sighting = dbHelper.GetSightingById(Id);
             var SpeciesId = sighting.SpeciesModel.Id;
             dbHelper.DeleteSighting(Id);
-            //return RedirectToAction("SightingList", new { id = SpeciesId });
+            
         }
 
 
@@ -238,7 +238,7 @@ namespace MyGardenWildlife3.Controllers
             var figure = dbHelper.GetFigureById(Id);
             var SightingId = figure.SightingModel.Id;
             dbHelper.DeleteFigure(Id);
-            //return RedirectToAction("FigureList", new { id = SightingId });
+            
         }
     }
 }

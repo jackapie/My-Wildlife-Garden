@@ -1,0 +1,27 @@
+﻿@model MyGardenWildlife3.Models.SpeciesModel
+
+<h2>Add New Sighting</h2>
+
+<input type="hidden" id="speciesId" name="SpeciesId" value="@Model.Id" />
+<input type="hidden" id="sightingId" name="SightingId" value="" />
+
+ When:
+<input type="datetime" id="whenSeen" name="WhenSeen" value="dd/mm/yyyy" />
+<br /><br />
+    Where:
+<input type="text" id="whereSeen" name="WhereSeen" value="" />
+<br /><br />
+    How many:
+<input type="number" id="howMany" name="HowMany" value="" />
+<br /><br />
+    Comment:
+<input type="text" id="comment" name="Comment" value="" />
+<br /><br />
+
+<input type="button" class="submitSighting" value="Submit" />
+
+
+
+<br /><br />
+<button type="button" class="toAdminIndex">Back to Admin Home</button>
+<button type="button" class="backToSighList">Back to Sighting List</button>

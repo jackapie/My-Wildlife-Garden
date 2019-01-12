@@ -1,11 +1,11 @@
 ﻿
 h1, h2, headerLinks a {
-    color: darkgreen
+    color: #3c661e;
 }
 
 .headerLinks a {
-    background-color: lightgoldenrodyellow;
-    border: 1px solid limegreen;
+    background-color: #e2f1ae;
+    border: 1px solid #91bd5e;
     border-radius: 2px;
     padding: 2px;
 }
@@ -17,7 +17,7 @@ html, body {
 }
 
 body {
-    background-color:azure;
+    background-color:#cde8b5;
     background-image: url("images/daisyBorder.jpg");
     background-position: top left;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body {
     font-family: Arial;
 }
 .contentSection, h1 {
-    border: 2px solid limegreen;
+    border: 2px solid #91bd5e;
     border-radius: 3px;
     padding: 3px
 }

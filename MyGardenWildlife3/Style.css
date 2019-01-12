@@ -16,13 +16,18 @@ html, body {
     height: 100%;
 }
 
+@media screen and (min-width: 450px) {
+    body {
+        background-image: url("images/daisyBorder.jpg");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin-left: 250px;
+    }
+}
+
 body {
-    background-color:#cde8b5;
-    background-image: url("images/daisyBorder.jpg");
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin-left: 250px;
+    background-color: #cde8b5;
     font-family: Arial;
 }
 .contentSection, h1 {

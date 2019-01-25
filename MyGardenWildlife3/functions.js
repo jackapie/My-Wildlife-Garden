@@ -24,7 +24,7 @@ $(document).ready(function () {
 function homePageReady() {
     $('.photoSection p, .speciesList div').hide();
     $(".headerLinks a").on("click", function () {
-        //clickedOnTextToH1(this);
+       
         var id = $(this).attr("id");
         if (id === "homeHeader") {
             $.get("/Home/HomePage/", function (data) {
@@ -153,7 +153,7 @@ function getSpeciesList(categoryId, sectionId) {
 function adminSpeciesEdit(categoryId, sectionId) {
     $(".toSpeciesEdit a").on("click", function () {
 
-        //var id = $(this).attr("id");
+       
         $.get("/Admin/SpeciesEdit/" + categoryId, function (data) {
             $(".contentSection").html(data);
             adminReloadToIndex();

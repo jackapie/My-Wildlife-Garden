@@ -142,6 +142,11 @@
     </Compile>
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
+    <Compile Include="Migrations\201901281012305_add ImgFile column.cs" />
+    <Compile Include="Migrations\201901281012305_add ImgFile column.Designer.cs">
+      <DependentUpon>201901281012305_add ImgFile column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\FigureModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
@@ -242,6 +247,11 @@
     </None>
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901281012305_add ImgFile column.resx">
+      <DependentUpon>201901281012305_add ImgFile column.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

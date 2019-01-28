@@ -13,5 +13,6 @@ namespace MyGardenWildlife3.Models
         public string Source { get; set; }
         public string Alternative { get; set; }
         public virtual SightingModel SightingModel { get; set; }
+        public byte[] ImgFile { get; set; }
     }
 }

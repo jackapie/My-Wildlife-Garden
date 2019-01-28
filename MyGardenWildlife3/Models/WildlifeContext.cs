@@ -12,8 +12,7 @@ namespace MyGardenWildlife3.Models
 
         public WildlifeContext() : base(ConnectionString)
         {
-            // this stops entity framework from requiring database migrations
-            Database.SetInitializer<WildlifeContext>(null);
+           
         }
 
         public DbSet<SectionModel> Sections { get; set; }

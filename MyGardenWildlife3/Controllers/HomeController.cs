@@ -61,5 +61,14 @@ namespace MyGardenWildlife3.Controllers
             return Redirect("~/");
         }
 
+        public ActionResult GetImgById(int id)
+        {
+            var dbHelper = new DatabaseHelper();
+            var figure = dbHelper.GetFigureById(id);
+            var imgFile = figure.ImgFile;
+            var contentType = imgFile.GetType().ToString();
+
+            return File(imgFile, contentType);
+        }
     }
 }

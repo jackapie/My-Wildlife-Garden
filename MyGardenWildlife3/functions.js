@@ -339,23 +339,40 @@ function adminSubmitSighting(speciesId, categoryId, sectionId) {
 function adminSubmitFigure(sightingId, speciesId, categoryId, sectionId) {
     {
         $(".submitFigure").on("click", function () {
-            var data = {
-                FigureId: $("#figureId").val(),
-                SightingId: $("#sightingId").val(),
-                Source: $("#source").val(),
-                Alternative: $("#alternative").val(),
-                Caption: $("#caption").val()
+            var fd = new FormData();
+            fd.append('FigureId', $("#figureId").val());
+            fd.append('SightingId', $("#sightingId").val());
+            fd.append('Source', $("#source").val());
+            fd.append('Alternative', $("#alternative").val());
+            fd.append('Caption', $("#caption").val());
+            fd.append('ImgFile', $("#imgFile")[0].files[0]);
 
-            };
+           
 
-            if (data.FigureId === "") {
-                $.post("/Admin/FigureAdd/", data, function () {
-                    getFigureList(sightingId, speciesId, categoryId, sectionId);
+            if (fd.get('FigureId') === "") {
+                $.ajax({
+                    url: '/Admin/FigureAdd/',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function () {
+                        getFigureList(sightingId, speciesId, categoryId, sectionId);
+                    }
                 });
+                
             } else {
-                $.post("/Admin/FigureSave/", data, function () {
-                    getFigureList(sightingId, speciesId, categoryId, sectionId);
+                $.ajax({
+                    url: '/Admin/FigureSave/',
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    success: function () {
+                        getFigureList(sightingId, speciesId, categoryId, sectionId);
+                    }
                 });
+               
             }
         });
     }

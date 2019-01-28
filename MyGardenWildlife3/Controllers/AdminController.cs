@@ -1,6 +1,7 @@
 ﻿using MyGardenWildlife3.Helpers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -158,10 +159,18 @@ namespace MyGardenWildlife3.Controllers
             return View(sighting);
         }
 
-        public void FigureAdd(int SightingId, string Source, string Alternative, string Caption)
+        [HttpPost]
+        public void FigureAdd(int SightingId, string Source, string Alternative, string Caption, HttpPostedFileBase ImgFile)
         {
-
-            dbHelper.AddFigure(SightingId, Source, Alternative, Caption);
+            if(ImgFile != null && ImgFile.ContentLength > 0)
+            {
+                using(var reader = new BinaryReader(ImgFile.InputStream))
+                {
+                    var imgByteArray = reader.ReadBytes(ImgFile.ContentLength);
+                    dbHelper.AddFigure(SightingId, Source, Alternative, Caption, imgByteArray);
+                }
+            }
+            
            
         }
 

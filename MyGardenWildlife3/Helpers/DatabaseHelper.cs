@@ -176,7 +176,7 @@ namespace MyGardenWildlife3.Helpers
             context.SaveChanges();
         }
 
-        public void AddFigure(int SightingId, string Source, string Alternative, string Caption)
+        public void AddFigure(int SightingId, string Source, string Alternative, string Caption, byte[] imgByteArray)
         {
             var context = new WildlifeContext();
             var sighting = context.Sighting.Where((e) => e.Id == SightingId).First();
@@ -185,6 +185,7 @@ namespace MyGardenWildlife3.Helpers
             figure.Source = Source;
             figure.Alternative = Alternative;
             figure.Caption = Caption;
+            figure.ImgFile = imgByteArray;
             context.SaveChanges();
 
         }

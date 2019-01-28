@@ -1,7 +1,15 @@
 ﻿@model MyGardenWildlife3.Models.FigureModel
 
 <figure>
-    @* To do: change src=... to retrieve image file in db, "~Home/GetImgById/@Model.Id" *@
-    <img src="~/images/@Model.Source" alt="@Model.Alternative"/>
+   
+    @if (Model.ImgFile != null)
+    {
+        <img src="~/Home/GetImgById/@Model.Id" alt="@Model.Alternative" />
+    }
+    else
+    {
+        <img src="~/images/@Model.Source" alt="@Model.Alternative" />
+    }
+
     <figcaption>@Model.Caption</figcaption>
 </figure>

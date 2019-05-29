@@ -3,13 +3,33 @@ h1, h2, headerLinks a {
     color: #3c661e;
 }
 
-.headerLinks a {
-    background-color: #e2f1ae;
-    border: 1px solid #91bd5e;
+a{
+    text-decoration: none;
+}
+
+.headerLinks a, .linkButtons a {
+    border: 1px solid;
     border-radius: 2px;
+    border-color: #91bd5e;
     padding: 2px;
 }
 
+.headerLinks a {
+    background-color: #e2f1ae;
+    
+    color: #3c661e;
+}
+
+.linkButtons a {
+    background-color: ButtonFace;    
+    color: ButtonText;
+    box-sizing: border-box;
+    font: 400 13.3333px Arial;
+}
+
+.contentSection a {
+    color: #3c661e;
+}
 
 
 html, body {
@@ -30,6 +50,7 @@ body {
     background-color: #cde8b5;
     font-family: Arial;
 }
+
 .contentSection, h1 {
     border: 2px solid #91bd5e;
     border-radius: 3px;
@@ -47,16 +68,18 @@ img {
 .speciesLatin {
     font-style: italic
 }
-table{
+
+table {
     border-collapse: collapse;
 }
+
 table, thead, tbody, th, td {
-    border:thin solid;
+    border: thin solid;
     padding: 15px;
 }
 
 
 
-thead{
-    font-weight:bold;
+thead {
+    font-weight: bold;
 }

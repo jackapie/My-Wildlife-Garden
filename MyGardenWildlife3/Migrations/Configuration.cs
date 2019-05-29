@@ -9,7 +9,7 @@ namespace MyGardenWildlife3.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(MyGardenWildlife3.Models.WildlifeContext context)

@@ -14,7 +14,7 @@
     </thead>
 
     <tbody>
-        @foreach (var speciesObject in Model.SpeciesList)
+        @foreach (var speciesObject in Model.SpeciesList.OrderBy(s => s.LatinName))
         {
             <tr>
                 <td>@speciesObject.CommonName</td>
